@@ -1,0 +1,201 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+/* @import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import "swiper/css/free-mode"; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "SansPro";
+  src: url("./assets/fonts/SourceSansPro-Light.otf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SansPro";
+  src: url("./assets/fonts/SourceSansPro-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SansPro";
+  src: url("./assets/fonts/SourceSansPro-Semibold.otf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SansPro";
+  src: url("./assets/fonts/SourceSansPro-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "SansPro", sans-serif;
+  font-weight: 400;
+}
+
+
+.section-title-header {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+
+/* ========================== 
+      DARK / LIGHT THEME   
+============================= */
+
+html[data-theme="dark"] body {
+  background-color: #1e1e1e;
+  color: white;
+
+  .trending-carousel-explore-all {
+    color: white;
+  }
+}
+
+
+
+/* ========================== 
+          SWIPER.JS   
+============================= */
+
+
+.movie-carousel-title {
+  font-weight: 600;
+  margin-bottom: 0rem;
+}
+
+.movie-carousel-date {
+  font-weight: 300;
+  font-size: 0.950rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  transform: translateY(-160%);
+}
+
+/* ========================== 
+     LOADING SPINNER   
+============================= */
+
+.spinner-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top: 2px solid #40c4ff;
+  border-right: 2px solid #00b0ff;
+  animation: spin 0.8s linear infinite;
+  box-shadow: 0 0 20px #40c4ff, 0 0 10px #00b0ff inset;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+/* ========================== 
+  LOADING CAROUSEL SPINNER   
+============================= */
+
+.loading-carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-carousel-spinner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top: 2px solid #40c4ff;
+  border-right: 2px solid #00b0ff;
+  animation: spinner 0.8s linear infinite;
+  box-shadow: 0 0 20px #40c4ff, 0 0 10px #00b0ff inset;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+.genre-card-container {
+  border: 1px solid #d1d1d1;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ========= PERSON CARD DETAILS PAGE  ========= */
+.person-card-details-page {
+  overflow: hidden;
+  border: transparent;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ========= TOP RATED MOVIES CAROUSEL ========= */
+.top-rated-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 1rem;
+  flex-wrap: wrap;
+}
+
+/* ========= NOW PLAYING MOVIES CAROUSEL ========= */
+.now-playing-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 1rem;
+  flex-wrap: wrap;
+}
+
+
+

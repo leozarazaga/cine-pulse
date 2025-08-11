@@ -1,0 +1,82 @@
+.trending-movies-background {
+  background-image: url("../assets/images/carousel-background.svg");
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+/* =========== TODAY | THIS WEEK BUTTON ===========*/
+.trending-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 1rem;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trending-title-button-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.trending-buttons-wrapper {
+  position: relative;
+  display: flex;
+  font-family: "SansPro", sans-serif;
+  border: 1px solid #032541;
+  border-radius: 25px;
+  overflow: hidden;
+  width: 11.5rem;
+  background-color: white;
+}
+
+.trending-buttons-wrapper button {
+  z-index: 1;
+  flex: 1;
+  font-size: 0.9rem;
+  padding: 3px 10px;
+  border: none;
+  background: transparent;
+  color: #032541;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+
+.trending-buttons-wrapper button.active {
+  color: white;
+}
+
+.toggle-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #032541;
+  border-radius: 25px;
+  z-index: 0;
+  transition: transform 0.3s ease;
+}
+
+.toggle-background.right {
+  transform: translateX(100%);
+}
+
+.toggle-background.left {
+  transform: translateX(0%);
+}
+
+/* =========== EXPLORE ALL TEXT ===========*/
+
+
+.trending-carousel-explore-all {
+  text-decoration: none;
+  color: #272727;
+  font-weight: 600;
+}
+

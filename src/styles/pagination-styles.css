@@ -1,0 +1,35 @@
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.3rem 0
+}
+
+.pagination-container button {
+  background-color: #032541;
+  color: white;
+  width: 6.5rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-container button:hover:not(:disabled) {
+  background-color: #02496e; 
+}
+
+.pagination-container button:disabled {
+  background-color: #ccc;
+  color: #666;
+}
+
+.pagination-container span {
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+  letter-spacing: 1px;
+}
