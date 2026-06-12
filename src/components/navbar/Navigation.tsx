@@ -65,6 +65,10 @@ const Navigation = () => {
                             </NavDropdown.Item>
                         </NavDropdown>
 
+
+
+
+
                         <NavDropdown
                             title={<span className="text-white fs-6 mx-2">Genres</span>}
                             id="genres-dropdown"
@@ -80,6 +84,10 @@ const Navigation = () => {
                             ))}
                         </NavDropdown>
                     </Nav>
+
+
+
+
                     <div className="ms-auto d-flex align-items-center gap-2">
                         <button onClick={toggleTheme} className="navbar-dark-light-btn">
                             {isDarkMode ? "☀️" : "🌙"}

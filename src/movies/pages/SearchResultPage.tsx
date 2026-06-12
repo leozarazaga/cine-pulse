@@ -46,7 +46,7 @@ const SearchResultPage = () => {
                                 <Card.Body>
                                     <Card.Title className="fs-6 fw-bold ">{movie.title}</Card.Title>
                                     <Card.Text className="text-muted" style={{ fontSize: "0.85rem" }}>
-                                      {isoToFormattedString(movie.release_date)}
+                                        {isoToFormattedString(movie.release_date)}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -64,7 +64,6 @@ const SearchResultPage = () => {
                         />
                     )}
                 </div>
-
             </Container>
         </div>
     );

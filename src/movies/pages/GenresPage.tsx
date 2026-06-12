@@ -1,4 +1,4 @@
-import { Link, useParams, useSearchParams } from "react-router";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router";
 import useMovieByGenre from "../hooks/useMovieByGenre";
 import useGenres from "../hooks/useGenres";
 import Pagination from "../../components/Pagination";
@@ -6,8 +6,10 @@ import ErrorMessage from "../../components/ErrorMessage";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { isoToFormattedString } from "../../utils/formatDate";
+import SearchForm from "../../components/SearchForm";
 
 const GenresPage = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const genreId = Number(id);
 
@@ -28,12 +30,15 @@ const GenresPage = () => {
     };
 
     const genrebyName = genreData.genres.find((genre) => genre.id === genreId)?.name;
+
     return (
         <>
             <title>{genrebyName}</title>
 
             <Container className="my-4">
                 <h1 className="mb-4">{genrebyName}</h1>
+
+                <SearchForm onSearch={(query) => navigate(`/search?query=${query}&page=1`)} searchCategory="movie" />
 
                 <Row xs={2} sm={3} md={4} lg={5} className="g-4">
                     {data.results.map((movie) => (

@@ -1,100 +1,40 @@
-interface DiscoverMovies {
+/* ============= GENERICS =============*/
+
+export interface PaginatedResponse<T> {
+    page: number;
+    results: T[];
+    total_pages: number;
+    total_results: number;
+}
+
+/* ============= ENTITIES =============*/
+
+export interface Movie {
     id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
     title: string;
+    original_title: string;
+    original_language: string;
+    overview: string;
+    poster_path: string | null;
+    backdrop_path: string | null;
+    release_date: string;
+    popularity: number;
+    vote_average: number;
+    vote_count: number;
     video: boolean;
-    vote_average: number;
-    vote_count: number;
+    genre_ids: number[];
 }
 
-export interface DiscoverMoviesResponse {
-    results: DiscoverMovies[];
-    page: number;
-}
-
-/* ============= NOW PLAYING MOVIES =============*/
-
-interface NowPlayingMovies {
-    id: number;
-    backdrop_path: string;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
-}
-
-export interface NowPlayingMoviesResponse {
-    results: NowPlayingMovies[];
-    page: number;
-    total_pages: number;
-    total_results: number;
-}
-
-/* ============= TRENDING MOVIES =============*/
-
-interface TrendingMovies {
-    id: number;
-    title: string;
-    original_title: string;
-    overview: string;
-    poster_path: string;
-    original_language: string;
-    release_date: string;
-}
-
-export interface TrendingMoviesResponse {
-    results: TrendingMovies[];
-    page: number;
-    total_pages: number;
-    total_results: number;
-}
-
-/* ============= TOP RATED MOVIES =============*/
-
-interface TopRatedMovies {
-    id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: false;
-    vote_average: number;
-    vote_count: number;
-}
-
-export interface TopRatedMoviesResponse {
-    results: TopRatedMovies[];
-    page: number;
-    total_pages: number;
-    total_results: number;
-}
-
-/* ============= GENRES =============*/
-
-interface Genres {
+export interface PopularPerson {
     id: number;
     name: string;
+    profile_path: string | null;
+    known_for: {
+        title?: string;
+        name?: string;
+        original_name?: string;
+    }[];
 }
-
-export interface GenresResponse {
-    genres: Genres[];
-}
-
-/* ============= MOVIE CARD =============*/
 
 export type MovieCard = {
     id: number;
@@ -103,32 +43,16 @@ export type MovieCard = {
     release_date: string;
 };
 
-/* ============= MOVIE =============*/
+/* ============= RESPONSES =============*/
 
-interface Movie {
-    backdrop_path: string;
-    genre_ids: number[];
+export interface Genres {
     id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
+    name: string;
 }
 
-export interface MoviesByGenreResponse {
-    page: number;
-    results: Movie[];
-    total_pages: number;
-    total_results: number;
+export interface GenresResponse {
+    genres: Genres[];
 }
-
-/* ============= MOVIE DETAILS =============*/
 
 export interface MovieDetails {
     id: number;
@@ -143,8 +67,6 @@ export interface MovieDetails {
     origin_country: string[];
 }
 
-/* ============= MOVIE CREDITS (CAST / CREW) =============*/
-
 export interface MovieCast {
     gender: number;
     id: number;
@@ -152,12 +74,13 @@ export interface MovieCast {
     name: string;
     original_name: string;
     popularity: number;
-    profile_path: string;
+    profile_path: string | null;
     cast_id: number;
     character: string;
     credit_id: string;
     order: number;
 }
+
 export interface MovieCrew {
     gender: number;
     id: number;
@@ -165,7 +88,7 @@ export interface MovieCrew {
     name: string;
     original_name: string;
     popularity: number;
-    profile_path: string;
+    profile_path: string | null;
     credit_id: string;
     department: string;
     job: string;
@@ -180,102 +103,15 @@ export interface MovieCreditsResponse {
 export interface PersonDetails {
     also_known_as: string[];
     biography: string;
-    birthday: string;
-    deathday: string;
+    birthday: string | null;
+    deathday: string | null;
     gender: number;
-    homepage: string;
+    homepage: string | null;
     id: number;
     imdb_id: string;
     known_for_department: string;
     name: string;
-    place_of_birth: string;
+    place_of_birth: string | null;
     popularity: number;
-    profile_path: string;
-}
-
-/* ============= MOVIES INVOLVED IN =============*/
-
-interface MoviesInvolvedIn {
-    id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: false;
-    vote_average: number;
-    vote_count: number;
-}
-
-export interface MoviesInvolvedInResponse {
-    results: MoviesInvolvedIn[];
-}
-
-/* ============= SIMILAR MOVIES OF THAT MOVIE =============*/
-
-interface SimilarMovies {
-    backdrop_path: string;
-    genre_ids: number[];
-    id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: false;
-    vote_average: number;
-    vote_count: number;
-}
-
-export interface SimilarMoviesResponse {
-    results: SimilarMovies[];
-}
-
-/* ============= SEARCH FOR A MOVIE =============*/
-
-interface SearchMovie {
-    backdrop_path: string | null;
-    genre_ids: number[];
-    id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
-}
-
-export interface SearchMovieResponse {
-    results: SearchMovie[];
-    page: number;
-    total_pages: number;
-    total_results: number;
-}
-
-/* ============= POPULAR PEOPLE =============*/
-
-export interface PopularPeople {
-    id: number;
-    name: string;
-    profile_path: string;
-    known_for: {
-        title: string | undefined;
-        name: string;
-        original_name: string;
-    }[];
-}
-
-export interface PopularPeopleResponse {
-    results: PopularPeople[];
-    page: number;
-    total_pages: number;
-    total_results: number;
+    profile_path: string | null;
 }
