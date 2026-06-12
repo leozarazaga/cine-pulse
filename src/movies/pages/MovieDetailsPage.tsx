@@ -12,7 +12,6 @@ import useRecentViewedMovies from "../../contexts/history/useRecentViewedMovies"
 import "../../styles/movie-details-page.css";
 import { useMovieCredits, useMovieDetails, useSimilarMovies } from "../hooks/useMovieQueries";
 
-
 const MovieDetailsPage = () => {
     const { id } = useParams();
     const movieId = Number(id);
