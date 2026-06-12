@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import type { MovieCard } from "../types/MovieDBTypes";
+import type { Movie } from "../types/MovieDBTypes";
 import { isoToFormattedString } from "../utils/formatDate";
 
 interface MovieCardProps {
-    movie: MovieCard;
+    movie: Movie;
 }
 export const MovieCarouselCards: React.FC<MovieCardProps> = ({ movie }) => {
     return (
@@ -12,9 +12,7 @@ export const MovieCarouselCards: React.FC<MovieCardProps> = ({ movie }) => {
                 <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} style={{ borderRadius: "12px", width: "100%" }} />
             </Link>
             <p className="movie-carousel-title">{movie.title}</p>
-            <span className="movie-carousel-date">
-                {isoToFormattedString(movie.release_date)}
-            </span>
+            <span className="movie-carousel-date">{isoToFormattedString(movie.release_date)}</span>
         </div>
     );
 };

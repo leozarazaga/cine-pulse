@@ -12,7 +12,7 @@ import type {
 const BEARER_TOKEN = import.meta.env.VITE_TMDB_BEARER_TOKEN;
 
 if (!BEARER_TOKEN) {
-  throw new Error("Missing TMDB Bearer Token in environment variables");
+    throw new Error("Missing TMDB Bearer Token in environment variables");
 }
 
 const instance = axios.create({

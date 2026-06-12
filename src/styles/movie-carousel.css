@@ -1,13 +1,10 @@
-.trending-movies-background {
-  background-image: url("../assets/images/carousel-background.svg");
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-position: center bottom;
+/* =========== GENERIC CAROUSEL STYLES ===========*/
+
+.carousel-section {
+  margin-bottom: 2rem;
 }
 
-/* =========== TODAY | THIS WEEK BUTTON ===========*/
-.trending-header-container {
+.carousel-header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,12 +13,29 @@
   flex-wrap: wrap;
 }
 
-.trending-title-button-group {
+.title-button-group {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
+.carousel-explore-all {
+  text-decoration: none;
+  color: #272727;
+  font-weight: 600;
+}
+
+
+/* =========== TRENDING ===========*/
+
+.trending-movies-background {
+  background-image: url("../assets/images/carousel-background.svg");
+  width: 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+/* Today | This Week Toggle Buttons */
 .trending-buttons-wrapper {
   position: relative;
   display: flex;
@@ -46,7 +60,6 @@
   transition: color 0.3s ease;
 }
 
-
 .trending-buttons-wrapper button.active {
   color: white;
 }
@@ -70,13 +83,3 @@
 .toggle-background.left {
   transform: translateX(0%);
 }
-
-/* =========== EXPLORE ALL TEXT ===========*/
-
-
-.trending-carousel-explore-all {
-  text-decoration: none;
-  color: #272727;
-  font-weight: 600;
-}
-
