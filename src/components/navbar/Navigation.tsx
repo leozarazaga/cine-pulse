@@ -5,8 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, NavLink } from "react-router";
 import navbarLogo from "../../assets/images/TMDB-logo.svg";
+import useTheme from "../../contexts/theme/useTheme";
 import { useGenres } from "../../movies/hooks/useMovieQueries";
-import useTheme from "../../movies/hooks/useTheme";
 import "../../styles/navbar.css";
 import LoadingSpinner from "../LoadingSpinner";
 

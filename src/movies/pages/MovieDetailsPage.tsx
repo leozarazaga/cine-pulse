@@ -8,9 +8,10 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 import { MovieCarouselCards } from "../../components/MovieCarouselCards";
 import RecentlyViewedMovies from "../../components/RecentlyViewedMovies";
 import Swiperjs from "../../components/Swiperjs";
+import useRecentViewedMovies from "../../contexts/history/useRecentViewedMovies";
 import "../../styles/movie-details-page.css";
 import { useMovieCredits, useMovieDetails, useSimilarMovies } from "../hooks/useMovieQueries";
-import useRecentViewedMovies from "../hooks/useRecentViewedMovies";
+
 
 const MovieDetailsPage = () => {
     const { id } = useParams();

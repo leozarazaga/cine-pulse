@@ -1,7 +1,7 @@
-import { SwiperSlide } from "swiper/react";
-import useRecentViewedMovies from "../movies/hooks/useRecentViewedMovies";
-import Swiperjs from "./Swiperjs";
 import { Link } from "react-router";
+import { SwiperSlide } from "swiper/react";
+import useRecentViewedMovies from "../contexts/history/useRecentViewedMovies";
+import Swiperjs from "./Swiperjs";
 
 const RecentlyViewedMovies = () => {
     const { recentlyViewed } = useRecentViewedMovies();
