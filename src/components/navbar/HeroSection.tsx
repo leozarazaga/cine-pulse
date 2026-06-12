@@ -1,11 +1,11 @@
-import "../../styles/hero-section.css";
 import { useEffect, useState } from "react";
-import useNowPlayingMovies from "../../movies/hooks/useNowPlayingMovies";
 import Container from "react-bootstrap/esm/Container";
-import LoadingCarouselSpinner from "../LoadingCarouselSpinner";
-import ErrorMessage from "../ErrorMessage";
-import SearchForm from "../SearchForm";
 import { useNavigate } from "react-router";
+import { useNowPlayingMovies } from "../../movies/hooks/useMovieQueries";
+import "../../styles/hero-section.css";
+import ErrorMessage from "../ErrorMessage";
+import LoadingCarouselSpinner from "../LoadingCarouselSpinner";
+import SearchForm from "../SearchForm";
 
 const HeroSection = () => {
     const { data, isLoading, isError, error } = useNowPlayingMovies();

@@ -1,18 +1,16 @@
-import "../../styles/movie-details-page.css";
-import { Link, useParams } from "react-router";
-import useMovieDetails from "../hooks/useMovieDetails";
-import useMovieCredits from "../hooks/useMovieCredits";
-import Swiperjs from "../../components/Swiperjs";
-import { SwiperSlide } from "swiper/react";
-import ErrorMessage from "../../components/ErrorMessage";
-import { Card, Col, Container, Row } from "react-bootstrap";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import { ActorsCarouselCards } from "../../components/ActorsCarouselCards";
-import { MovieCarouselCards } from "../../components/MovieCarouselCards";
-import useSimilarMovies from "../hooks/useSimilarMovies";
-import useRecentViewedMovies from "../hooks/useRecentViewedMovies";
 import { useEffect } from "react";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { Link, useParams } from "react-router";
+import { SwiperSlide } from "swiper/react";
+import { ActorsCarouselCards } from "../../components/ActorsCarouselCards";
+import ErrorMessage from "../../components/ErrorMessage";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import { MovieCarouselCards } from "../../components/MovieCarouselCards";
 import RecentlyViewedMovies from "../../components/RecentlyViewedMovies";
+import Swiperjs from "../../components/Swiperjs";
+import "../../styles/movie-details-page.css";
+import { useMovieCredits, useMovieDetails, useSimilarMovies } from "../hooks/useMovieQueries";
+import useRecentViewedMovies from "../hooks/useRecentViewedMovies";
 
 const MovieDetailsPage = () => {
     const { id } = useParams();
@@ -46,8 +44,8 @@ const MovieDetailsPage = () => {
 
     return (
         <>
-        <title>{movieData.title}</title>
-        
+            <title>{movieData.title}</title>
+
             <div className="movie-details-backdrop-container ">
                 <img
                     src={`https://image.tmdb.org/t/p/w1280${movieData.backdrop_path}`}

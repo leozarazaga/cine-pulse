@@ -1,13 +1,12 @@
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router";
-import { Container, Row, Col, Card } from "react-bootstrap";
 import { SwiperSlide } from "swiper/react";
-import usePersonDetails from "../hooks/usePersonDetails";
-import useMoviesInvolvedIn from "../hooks/useMoviesInvolvedIn";
-import Swiperjs from "../../components/Swiperjs";
-import LoadingSpinner from "../../components/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
-import { calculateAgeAtDeath, calculateCurrentAge, isoToFormattedString } from "../../utils/formatDate";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import Swiperjs from "../../components/Swiperjs";
 import TextExpander from "../../components/TextExpander";
+import { calculateAgeAtDeath, calculateCurrentAge, isoToFormattedString } from "../../utils/formatDate";
+import { useMoviesInvolvedIn, usePersonDetails } from "../hooks/useMovieQueries";
 
 const PersonDetailsPage = () => {
     const { id } = useParams();
@@ -44,7 +43,7 @@ const PersonDetailsPage = () => {
                         <div>
                             <strong>Birthday: </strong>
                             <p>
-                                {isoToFormattedString(personData.birthday)} ({calculateCurrentAge(personData.birthday)} years old)
+                                {isoToFormattedString(personData.birthday)} ({calculateCurrentAge(String(personData.birthday))} years old)
                             </p>
                         </div>
 
@@ -52,8 +51,8 @@ const PersonDetailsPage = () => {
                             <div>
                                 <strong>Day of Death</strong>
                                 <p>
-                                    {isoToFormattedString(personData.deathday)} ({calculateAgeAtDeath(personData.birthday, personData.deathday)} years
-                                    old)
+                                    {isoToFormattedString(personData.deathday)} (
+                                    {calculateAgeAtDeath(String(personData.birthday), personData.deathday)} years old)
                                 </p>
                             </div>
                         )}

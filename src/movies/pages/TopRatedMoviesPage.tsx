@@ -2,9 +2,9 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router";
 import ErrorMessage from "../../components/ErrorMessage";
 import LoadingSpinner from "../../components/LoadingSpinner";
-import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import Pagination from "../../components/Pagination";
 import { isoToFormattedString } from "../../utils/formatDate";
+import { useTopRatedMovies } from "../hooks/useMovieQueries";
 
 const TopRatedMoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -21,7 +21,7 @@ const TopRatedMoviesPage = () => {
     return (
         <div>
             <title>Top Rated Movies</title>
-            
+
             <Container className="my-4">
                 <h2 className="section-title-header my-0 fs-3 mb-4">Top Rated Movies</h2>
 

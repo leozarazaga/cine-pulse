@@ -1,11 +1,11 @@
-import { Link, useSearchParams } from "react-router";
-import useSearchForm from "../hooks/useSearchForm";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import ErrorMessage from "../../components/ErrorMessage";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import SearchForm from "../../components/SearchForm";
+import { Link, useSearchParams } from "react-router";
+import ErrorMessage from "../../components/ErrorMessage";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import Pagination from "../../components/Pagination";
+import SearchForm from "../../components/SearchForm";
 import { isoToFormattedString } from "../../utils/formatDate";
+import { useSearchForm } from "../hooks/useMovieQueries";
 
 const SearchResultPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();

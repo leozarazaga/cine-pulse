@@ -1,9 +1,9 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router";
-import usePopularPeople from "../hooks/usePopularPeople";
-import LoadingSpinner from "../../components/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import Pagination from "../../components/Pagination";
+import { usePopularPeople } from "../hooks/useMovieQueries";
 
 const PopularPeoplePage = () => {
     const [searchParams, setSearchParams] = useSearchParams();

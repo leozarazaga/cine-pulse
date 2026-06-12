@@ -1,4 +1,3 @@
-// src/components/home/MovieCarousel.tsx
 import type { UseQueryResult } from "@tanstack/react-query";
 import { Link } from "react-router";
 import { SwiperSlide } from "swiper/react";

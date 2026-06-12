@@ -1,10 +1,10 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
-import ErrorMessage from "../../components/ErrorMessage";
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import { Link, useSearchParams } from "react-router";
-import Pagination from "../../components/Pagination";
+import ErrorMessage from "../../components/ErrorMessage";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import Pagination from "../../components/Pagination";
 import { isoToFormattedString } from "../../utils/formatDate";
+import { useNowPlayingMovies } from "../hooks/useMovieQueries";
 
 const NowPlayingMoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();

@@ -1,10 +1,10 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
-import ErrorMessage from "../../components/ErrorMessage";
-import useTrendingMovies from "../hooks/useTrendingMovies";
 import { Link, useSearchParams } from "react-router";
-import Pagination from "../../components/Pagination";
+import ErrorMessage from "../../components/ErrorMessage";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import Pagination from "../../components/Pagination";
 import { isoToFormattedString } from "../../utils/formatDate";
+import { useTrendingMovies } from "../hooks/useMovieQueries";
 
 const NowTrendingMoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -58,7 +58,7 @@ const NowTrendingMoviesPage = () => {
                                 <Card.Body>
                                     <Card.Title className="fs-6 fw-bold ">{movie.title}</Card.Title>
                                     <Card.Text className="text-muted" style={{ fontSize: "0.85rem" }}>
-                                      {isoToFormattedString(movie.release_date)}
+                                        {isoToFormattedString(movie.release_date)}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>

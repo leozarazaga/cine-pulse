@@ -1,11 +1,9 @@
 import Container from "react-bootstrap/esm/Container";
-import HeroSection from "../../components/navbar/HeroSection";
-import TrendingMoviesCarousel from "../../components/home/TrendingMoviesCarousel";
-import RecentlyViewedMovies from "../../components/RecentlyViewedMovies";
 import MovieCarousel from "../../components/home/MovieCarousel";
-
-import useNowPlayingMovies from "../../movies/hooks/useNowPlayingMovies";
-import useTopRatedMovies from "../../movies/hooks/useTopRatedMovies";
+import TrendingMoviesCarousel from "../../components/home/TrendingMoviesCarousel";
+import HeroSection from "../../components/navbar/HeroSection";
+import RecentlyViewedMovies from "../../components/RecentlyViewedMovies";
+import { useNowPlayingMovies, useTopRatedMovies } from "../hooks/useMovieQueries";
 
 const HomePage = () => {
     const nowPlayingQuery = useNowPlayingMovies();

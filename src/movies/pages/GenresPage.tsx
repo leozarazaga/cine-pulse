@@ -1,12 +1,11 @@
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router";
-import useMovieByGenre from "../hooks/useMovieByGenre";
-import useGenres from "../hooks/useGenres";
-import Pagination from "../../components/Pagination";
 import ErrorMessage from "../../components/ErrorMessage";
 import LoadingSpinner from "../../components/LoadingSpinner";
-import { Card, Col, Container, Row } from "react-bootstrap";
-import { isoToFormattedString } from "../../utils/formatDate";
+import Pagination from "../../components/Pagination";
 import SearchForm from "../../components/SearchForm";
+import { isoToFormattedString } from "../../utils/formatDate";
+import { useGenres, useMovieByGenre } from "../hooks/useMovieQueries";
 
 const GenresPage = () => {
     const navigate = useNavigate();
