@@ -17,7 +17,7 @@ const HomePage = () => {
 
             <Container>
                 <TrendingMoviesCarousel />
-                <MovieCarousel title="Now Playing" exploreLink="/now-playing" query={nowPlayingQuery} />
+                <MovieCarousel title="Now Playing" exploreLink="/now-playing" query={nowPlayingQuery}  />
                 <MovieCarousel title="Top Rated" exploreLink="/top-rated" query={topRatedQuery} />
                 <RecentlyViewedMovies />
             </Container>

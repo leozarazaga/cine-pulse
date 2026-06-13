@@ -71,7 +71,6 @@ html[data-theme="dark"] body {
           SWIPER.JS   
 ============================= */
 
-
 .movie-carousel-title {
   font-weight: 600;
   margin-bottom: 0rem;
@@ -82,9 +81,45 @@ html[data-theme="dark"] body {
   font-size: 0.950rem;
 }
 
+/* Modern Cinematic Swiper Arrows */
 .swiper-button-next,
 .swiper-button-prev {
-  transform: translateY(-160%);
+  background-color: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 50%;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-top: -23px !important;
+}
+
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.1rem !important;
+  font-weight: 900 !important;
+}
+
+.swiper-button-prev {
+  left: 8px !important;
+}
+
+.swiper-button-next {
+  right: 8px !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #ffffff;
+  color: #000000 !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+  pointer-events: none;
 }
 
 /* ========================== 
@@ -196,6 +231,3 @@ html[data-theme="dark"] body {
   margin: 2rem 0 1rem;
   flex-wrap: wrap;
 }
-
-
-
