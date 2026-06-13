@@ -1,29 +1,43 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
-import { Link, useSearchParams } from "react-router";
-import ErrorMessage from "../../components/ErrorMessage";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import Pagination from "../../components/Pagination";
-import { isoToFormattedString } from "../../utils/formatDate";
-import { useTopRatedMovies } from "../hooks/useMovieQueries";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router";
+import ErrorMessage from "../components/ErrorMessage";
+import LoadingSpinner from "../components/LoadingSpinner";
+import Pagination from "../components/Pagination";
+import SearchForm from "../components/SearchForm";
+import { isoToFormattedString } from "../utils/formatDate";
+import { useGenres, useMovieByGenre } from "../hooks/useMovieQueries";
 
-const TopRatedMoviesPage = () => {
+const GenresPage = () => {
+    const navigate = useNavigate();
+    const { id } = useParams();
+    const genreId = Number(id);
+
     const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = Number(searchParams.get("page")) || 1;
-    const { data, isLoading, isError, error, isFetching } = useTopRatedMovies(currentPage);
+
+    const { data, isLoading, isError, error, isFetching } = useMovieByGenre(genreId, currentPage);
+    const { data: genreData, isLoading: isGenresLoading, isError: isGenresError, error: genresError } = useGenres();
 
     if (!data || isLoading) return <LoadingSpinner />;
     if (isError) return <ErrorMessage message={error.message} />;
+
+    if (!genreData || isGenresLoading) return <LoadingSpinner />;
+    if (isGenresError) return <ErrorMessage message={genresError.message} />;
 
     const handlePageChange = (newPage: number) => {
         setSearchParams({ page: String(newPage) });
     };
 
+    const genrebyName = genreData.genres.find((genre) => genre.id === genreId)?.name;
+
     return (
-        <div>
-            <title>Top Rated Movies</title>
+        <>
+            <title>{genrebyName}</title>
 
             <Container className="my-4">
-                <h2 className="section-title-header my-0 fs-3 mb-4">Top Rated Movies</h2>
+                <h1 className="mb-4">{genrebyName}</h1>
+
+                <SearchForm onSearch={(query) => navigate(`/search?query=${query}&page=1`)} searchCategory="movie" />
 
                 <Row xs={2} sm={3} md={4} lg={5} className="g-4">
                     {data.results.map((movie) => (
@@ -32,7 +46,7 @@ const TopRatedMoviesPage = () => {
                                 <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`} alt={movie.title} />
                                 <Card.Body>
                                     <Card.Title className="fs-6 fw-bold ">{movie.title}</Card.Title>
-                                    <Card.Text className="text-muted" style={{ fontSize: "0.85rem" }}>
+                                    <Card.Text className="text-muted" style={{ fontSize: "0.90rem" }}>
                                         {isoToFormattedString(movie.release_date)}
                                     </Card.Text>
                                 </Card.Body>
@@ -45,8 +59,8 @@ const TopRatedMoviesPage = () => {
                     <Pagination currentPage={currentPage} totalPages={data.total_pages} onPageChange={handlePageChange} isFetching={isFetching} />
                 </div>
             </Container>
-        </div>
+        </>
     );
 };
 
-export default TopRatedMoviesPage;
+export default GenresPage;

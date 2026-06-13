@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router";
 import { SwiperSlide } from "swiper/react";
-import { ActorsCarouselCards } from "../../components/ActorsCarouselCards";
-import ErrorMessage from "../../components/ErrorMessage";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import { MovieCarouselCards } from "../../components/MovieCarouselCards";
-import RecentlyViewedMovies from "../../components/RecentlyViewedMovies";
-import Swiperjs from "../../components/Swiperjs";
-import useRecentViewedMovies from "../../contexts/history/useRecentViewedMovies";
-import "../../styles/movie-details-page.css";
+import { ActorsCarouselCards } from "../components/ActorsCarouselCards";
+import ErrorMessage from "../components/ErrorMessage";
+import LoadingSpinner from "../components/LoadingSpinner";
+import { MovieCarouselCards } from "../components/MovieCarouselCards";
+import RecentlyViewedMovies from "../components/RecentlyViewedMovies";
+import Swiperjs from "../components/Swiperjs";
+import useRecentViewedMovies from "../contexts/history/useRecentViewedMovies";
 import { useMovieCredits, useMovieDetails, useSimilarMovies } from "../hooks/useMovieQueries";
+import "../styles/movie-details-page.css";
 
 const MovieDetailsPage = () => {
     const { id } = useParams();

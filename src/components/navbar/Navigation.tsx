@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, NavLink } from "react-router";
 import navbarLogo from "../../assets/images/TMDB-logo.svg";
 import useTheme from "../../contexts/theme/useTheme";
-import { useGenres } from "../../movies/hooks/useMovieQueries";
+import { useGenres } from "../../hooks/useMovieQueries";
 import "../../styles/navbar.css";
 import LoadingSpinner from "../LoadingSpinner";
 
@@ -18,7 +18,7 @@ const Navigation = () => {
 
     const { isDarkMode, toggleTheme } = useTheme();
 
-    if (isLoading) return <LoadingSpinner/>
+    if (isLoading) return <LoadingSpinner />;
     if (isError) return <p>Error: {error.message} ⛔️</p>;
     if (!data) return;
 
@@ -64,10 +64,6 @@ const Navigation = () => {
                             </NavDropdown.Item>
                         </NavDropdown>
 
-
-
-
-
                         <NavDropdown
                             title={<span className="text-white fs-6 mx-2">Genres</span>}
                             id="genres-dropdown"
@@ -83,9 +79,6 @@ const Navigation = () => {
                             ))}
                         </NavDropdown>
                     </Nav>
-
-
-
 
                     <div className="ms-auto d-flex align-items-center gap-2">
                         <button onClick={toggleTheme} className="navbar-dark-light-btn">

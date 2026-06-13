@@ -1,12 +1,12 @@
 import { useParams } from "react-router";
-import ErrorMessage from "../../components/ErrorMessage";
-import KnownForCarousel from "../../components/KnownForCarousel";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import PersonSidebar from "../../components/PersonSidebar";
-import TextExpander from "../../components/TextExpander";
-import TopAcclaimedGrid from "../../components/TopAcclaimedGrid";
-import "../../styles/person-editorial.css";
+import ErrorMessage from "../components/ErrorMessage";
+import LoadingSpinner from "../components/LoadingSpinner";
+import TextExpander from "../components/TextExpander";
+import KnownForCarousel from "../components/actor/KnownForCarousel";
+import PersonSidebar from "../components/actor/PersonSidebar";
+import TopCriticallyAcclaimed from "../components/actor/TopCriticallyAcclaimed";
 import { useMoviesInvolvedIn, usePersonDetails } from "../hooks/useMovieQueries";
+import "../styles/person-details-styles.css";
 
 const PersonDetailsPage = () => {
     const { id } = useParams();
@@ -29,17 +29,17 @@ const PersonDetailsPage = () => {
     const carouselMovies = involvedInData.results.filter((movie) => !topCriticallyAcclaimed.some((top) => top.id === movie.id));
 
     return (
-        <div className="editorial-wrapper">
-            <main className="editorial-container">
+        <div className="person-details-wrapper">
+            <main className="person-container">
                 <title>{personData.name}</title>
 
                 <div className="profile-grid">
-                    {/* Left Grid Side */}
+                    {/* Left Side Grid */}
 
                     {/* =============== Personal Record =============== */}
                     <PersonSidebar personData={personData} />
 
-                    {/* Right Grid Side */}
+                    {/* Right Side Grid */}
                     <article className="content-main">
                         <div className="profile-main-header">
                             <h1 className="profile-title">{personData.name}</h1>
@@ -47,7 +47,7 @@ const PersonDetailsPage = () => {
 
                         <section className="mb-5 pb-4">
                             <h2 className="section-header">Biography</h2>
-                            <div className="editorial-bio-content">
+                            <div className="person-bio-content">
                                 <TextExpander collapsedNumWords={80}>
                                     {personData.biography || `We don't have a biography for ${personData.name}.`}
                                 </TextExpander>
@@ -55,7 +55,7 @@ const PersonDetailsPage = () => {
                         </section>
 
                         {/* =============== Top Critically Acclaimed =============== */}
-                        <TopAcclaimedGrid movies={topCriticallyAcclaimed} />
+                        <TopCriticallyAcclaimed movies={topCriticallyAcclaimed} />
 
                         {/* =============== Known For Carousel =============== */}
                         <KnownForCarousel movies={carouselMovies} />

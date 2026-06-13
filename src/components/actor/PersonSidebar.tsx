@@ -1,5 +1,5 @@
-import type { PersonDetails } from "../types/MovieDBTypes";
-import { calculateAgeAtDeath, calculateCurrentAge, isoToFormattedString } from "../utils/formatDate";
+import type { PersonDetails } from "../../types/MovieDBTypes";
+import { calculateAgeAtDeath, calculateCurrentAge, isoToFormattedString } from "../../utils/formatDate";
 
 interface PersonSidebarProps {
     personData: PersonDetails;

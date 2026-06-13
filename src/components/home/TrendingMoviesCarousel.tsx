@@ -1,7 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import useTrendingPeriod from "../../contexts/period/useTrendingPeriod";
-import { useTrendingMovies } from "../../movies/hooks/useMovieQueries";
+import { useTrendingMovies } from "../../hooks/useMovieQueries";
 import { trendingMovies } from "../../service/MovieDBAPI";
 import "../../styles/movie-carousel.css";
 import MovieCarousel from "./MovieCarousel";

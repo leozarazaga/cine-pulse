@@ -1,15 +1,15 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router";
-import ErrorMessage from "../../components/ErrorMessage";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import Pagination from "../../components/Pagination";
-import { isoToFormattedString } from "../../utils/formatDate";
-import { useNowPlayingMovies } from "../hooks/useMovieQueries";
+import ErrorMessage from "../components/ErrorMessage";
+import LoadingSpinner from "../components/LoadingSpinner";
+import Pagination from "../components/Pagination";
+import { isoToFormattedString } from "../utils/formatDate";
+import { useTopRatedMovies } from "../hooks/useMovieQueries";
 
-const NowPlayingMoviesPage = () => {
+const TopRatedMoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = Number(searchParams.get("page")) || 1;
-    const { data, isLoading, isError, error, isFetching } = useNowPlayingMovies(currentPage);
+    const { data, isLoading, isError, error, isFetching } = useTopRatedMovies(currentPage);
 
     if (!data || isLoading) return <LoadingSpinner />;
     if (isError) return <ErrorMessage message={error.message} />;
@@ -20,10 +20,10 @@ const NowPlayingMoviesPage = () => {
 
     return (
         <div>
+            <title>Top Rated Movies</title>
+
             <Container className="my-4">
-                <title>Trending</title>
-                
-                <h2 className="section-title-header my-0 fs-3 mb-4">Trending</h2>
+                <h2 className="section-title-header my-0 fs-3 mb-4">Top Rated Movies</h2>
 
                 <Row xs={2} sm={3} md={4} lg={5} className="g-4">
                     {data.results.map((movie) => (
@@ -49,4 +49,4 @@ const NowPlayingMoviesPage = () => {
     );
 };
 
-export default NowPlayingMoviesPage;
+export default TopRatedMoviesPage;

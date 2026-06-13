@@ -1,9 +1,9 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router";
-import ErrorMessage from "../../components/ErrorMessage";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import Pagination from "../../components/Pagination";
-import { isoToFormattedString } from "../../utils/formatDate";
+import ErrorMessage from "../components/ErrorMessage";
+import LoadingSpinner from "../components/LoadingSpinner";
+import Pagination from "../components/Pagination";
+import { isoToFormattedString } from "../utils/formatDate";
 import { useTrendingMovies } from "../hooks/useMovieQueries";
 
 const NowTrendingMoviesPage = () => {

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import * as service from "../../service/MovieDBAPI";
+import * as service from "../service/MovieDBAPI";
 
 // ====================  LIST QUERIES (PAGINATION) ====================
 

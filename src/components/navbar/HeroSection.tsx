@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
 import { useNavigate } from "react-router";
-import { useNowPlayingMovies } from "../../movies/hooks/useMovieQueries";
+import { useNowPlayingMovies } from "../../hooks/useMovieQueries";
 import "../../styles/hero-section.css";
 import ErrorMessage from "../ErrorMessage";
 import LoadingCarouselSpinner from "../LoadingCarouselSpinner";

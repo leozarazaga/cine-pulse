@@ -1,47 +1,36 @@
-/* ==================================
-   THEME VARIABLES
-==================================== */
 :root {
-    --editorial-bg: #faf9f6;
-    --editorial-text: #1a1a1a;
-    --editorial-muted: #6c6c70;
-    --editorial-border: rgba(0, 0, 0, 0.08);
-    --editorial-card-bg: #ffffff;
-    --editorial-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
-    --editorial-accent: #b8860b;
-    --editorial-tag-bg: rgba(0, 0, 0, 0.04);
+    --person-bg: #faf9f6;
+    --person-text: #1a1a1a;
+    --person-muted: #6c6c70;
+    --person-border: rgba(0, 0, 0, 0.08);
+    --person-card-bg: #ffffff;
+    --person-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+    --person-accent: #b8860b;
 }
 
 html[data-theme="dark"] {
-    --editorial-bg: #1e1e1e;
-    --editorial-text: #e5e2e3;
-    --editorial-muted: #8e8e93;
-    --editorial-border: rgba(255, 255, 255, 0.1);
-    --editorial-card-bg: rgba(255, 255, 255, 0.03);
-    --editorial-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-    --editorial-accent: #f2ca50;
-    --editorial-tag-bg: rgba(255, 255, 255, 0.05);
+    --person-bg: #1e1e1e;
+    --person-text: #e5e2e3;
+    --person-muted: #8e8e93;
+    --person-border: rgba(255, 255, 255, 0.1);
+    --person-card-bg: rgba(255, 255, 255, 0.03);
+    --person-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    --person-accent: #f2ca50;
 }
 
 /* ==================================
-   BASE LAYOUT & AMBIENT GLOW
+    BASE LAYOUT & AMBIENT GLOW
 ==================================== */
-.editorial-wrapper {
+.person-details-wrapper {
     position: relative;
     overflow-x: hidden;
-    background-color: var(--editorial-bg);
-    color: var(--editorial-text);
+    background-color: var(--person-bg);
+    color: var(--person-text);
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-
-html[data-theme="dark"] .ambient-glow {
-    opacity: 0.15;
-}
-
-.editorial-container {
+.person-container {
     position: relative;
     z-index: 1;
     max-width: 1300px;
@@ -64,7 +53,7 @@ html[data-theme="dark"] .ambient-glow {
 }
 
 /* ==================================
-      LEFT RAIL (SIDEBAR)
+        LEFT GRID (SIDEBAR)
 ==================================== */
 .profile-image {
     width: 100%;
@@ -80,9 +69,9 @@ html[data-theme="dark"] .profile-image {
 }
 
 .personal-record-card {
-    background-color: var(--editorial-card-bg);
-    border: 1px solid var(--editorial-border);
-    box-shadow: var(--editorial-card-shadow);
+    background-color: var(--person-card-bg);
+    border: 1px solid var(--person-border);
+    box-shadow: var(--person-card-shadow);
     border-radius: 12px;
     padding: 2rem;
 }
@@ -94,8 +83,8 @@ html[data-theme="dark"] .profile-image {
     font-weight: 700;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--editorial-border);
-    color: var(--editorial-accent);
+    border-bottom: 1px solid var(--person-border);
+    color: var(--person-accent);
 }
 
 .record-item {
@@ -104,7 +93,7 @@ html[data-theme="dark"] .profile-image {
     align-items: flex-end;
     padding-bottom: 0.75rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid var(--editorial-border);
+    border-bottom: 1px solid var(--person-border);
 }
 
 .record-item:last-child {
@@ -116,7 +105,7 @@ html[data-theme="dark"] .profile-image {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--editorial-muted);
+    color: var(--person-muted);
 }
 
 .record-item-value {
@@ -126,7 +115,7 @@ html[data-theme="dark"] .profile-image {
 }
 
 /* ==================================
-   RIGHT RAIL (MAIN CONTENT)
+      RIGHT GRID (MAIN CONTENT)
 ==================================== */
 .content-main {
     min-width: 0;
@@ -139,12 +128,13 @@ html[data-theme="dark"] .profile-image {
     line-height: 1;
     margin: 0 0 2rem;
     letter-spacing: -0.02em;
-    color: var(--editorial-text);
+    color: var(--person-text);
 }
 
 html[data-theme="dark"] .profile-title {
     background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
     -webkit-background-clip: text;
+    background-clip: text; 
     -webkit-text-fill-color: transparent;
 }
 
@@ -163,62 +153,29 @@ html[data-theme="dark"] .profile-title {
     content: "";
     flex-grow: 1;
     height: 1px;
-    background-color: var(--editorial-border);
+    background-color: var(--person-border);
 }
 
-.editorial-bio-content {
+.person-bio-content {
     font-size: 1.1rem;
     line-height: 1.7;
     opacity: 0.9;
-    border-left: 3px solid var(--editorial-accent);
+    border-left: 3px solid var(--person-accent);
     padding-left: 1.5rem;
     margin-top: 1rem;
-    color: var(--editorial-text);
+    color: var(--person-text);
 }
 
 /* ==================================
-   CAROUSEL (FEATURED WORKS)
-==================================== */
-.editorial-movie-card {
-    border-radius: 12px;
-    overflow: visible;
-    position: relative;
-    cursor: pointer;
-}
-
-.editorial-movie-card img {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: var(--editorial-card-shadow);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
-    transform-origin: center bottom;
-}
-
-.editorial-movie-card p {
-    color: var(--editorial-text);
-    margin-top: 2px;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
-
-.editorial-movie-card:hover p {
-    color: var(--editorial-accent);
-}
-
-/* ==================================
-   CLEAN CRITICAL ACCLAIM GRID
+       TOP CRITICALLY ACCLAIMED
 ==================================== */
 .acclaim-grid {
     display: grid;
-    /* Default to 1 column for mobile */
     grid-template-columns: 1fr;
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
-/* Switch to 2 columns on tablets and larger */
 @media (min-width: 640px) {
     .acclaim-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -233,7 +190,7 @@ html[data-theme="dark"] .profile-title {
     overflow: hidden;
     text-decoration: none;
     background-color: #000;
-    box-shadow: var(--editorial-card-shadow);
+    box-shadow: var(--person-card-shadow);
 }
 
 .acclaim-image-wrapper {
@@ -260,7 +217,7 @@ html[data-theme="dark"] .profile-title {
 
 .acclaim-rank {
     display: inline-block;
-    background-color: var(--editorial-accent);
+    background-color: var(--person-accent);
     color: #111;
     font-size: 0.7rem;
     font-weight: 800;
@@ -289,7 +246,7 @@ html[data-theme="dark"] .profile-title {
 }
 
 /* ==================================
-   CINEMATIC CAROUSEL (FEATURED WORKS)
+         KNOWN FOR CAROUSEL
 ==================================== */
 .known-for-header {
     display: flex;
@@ -304,9 +261,9 @@ html[data-theme="dark"] .profile-title {
 }
 
 .custom-nav-btn {
-    background: var(--editorial-accent);
-    color: white;
-    border: 1px solid var(--editorial-border);
+    background: var(--person-accent);
+    color: #1a1a1a;
+    border: 1px solid var(--person-border);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -317,23 +274,26 @@ html[data-theme="dark"] .profile-title {
     transition: all 0.2s ease;
 }
 
-
-
-/* Cinematic Landscape Cards */
-.editorial-movie-card {
+.person-movie-card {
     position: relative;
-    border-radius: 5px;
+    border-radius: 8px;
     overflow: hidden;
 }
 
-.editorial-movie-card img {
+.person-movie-card img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    /* Cinematic landscape */
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.editorial-movie-title {
+.person-movie-card:hover img {
+    transform: scale(1.04);
+}
+
+.person-movie-title {
     font-weight: 600;
     font-size: 0.95rem;
+    margin-top: 0.5rem;
+    color: var(--person-text);
 }
