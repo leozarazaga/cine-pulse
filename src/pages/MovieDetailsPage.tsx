@@ -83,14 +83,14 @@ const MovieDetailsPage = () => {
                             {/* Movie Credits */}
                             {principalCrew.length > 0 && (
                                 <div className="movie-crew-row">
-                                    {principalCrew.map((member, index) => (
-                                        <div key={`${member.credit_id}-${index}`} className="crew-member-block">
+                                    {principalCrew.map((member) => (
+                                        <div key={`${member.credit_id}-${member.job}`} className="crew-member-block">
                                             <span className="crew-member-name">{member.name}</span>
                                             <span className="crew-member-job">{member.job}</span>
                                         </div>
                                     ))}
                                 </div>
-                             )}
+                            )}
                         </Col>
 
                         {/* =============== SCENES & TOP CAST =============== */}
@@ -105,7 +105,7 @@ const MovieDetailsPage = () => {
                                                 href={`https://image.tmdb.org/t/p/original${image.file_path}`}
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                key={index}
+                                                key={image.file_path}
                                             >
                                                 <img
                                                     src={`https://image.tmdb.org/t/p/w500${image.file_path}`}
@@ -124,7 +124,8 @@ const MovieDetailsPage = () => {
                                     <h4 className="movie-section-label">Top Cast</h4>
                                     <div className="cast-circles-container">
                                         {topCast.map((actor) => (
-                                            <Link to={`/person/${actor.id}`} key={actor.id} className="cast-circle-item">
+                                            /* FIX 2: Combining id and character to guarantee uniqueness for double roles */
+                                            <Link to={`/person/${actor.id}`} key={`${actor.id}-${actor.character}`} className="cast-circle-item">
                                                 <img
                                                     src={
                                                         actor.profile_path
@@ -151,7 +152,7 @@ const MovieDetailsPage = () => {
                     <h4 className="mb-4 fw-bold">Full Cast</h4>
                     <Swiperjs breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
                         {creditsData.cast.map((actor) => (
-                            <SwiperSlide key={actor.id}>
+                            <SwiperSlide key={`${actor.id}-${actor.character}`}>
                                 <ActorsCarouselCards actor={actor} />
                             </SwiperSlide>
                         ))}

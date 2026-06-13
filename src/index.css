@@ -71,6 +71,12 @@ html[data-theme="dark"] body {
           SWIPER.JS   
 ============================= */
 
+.swiper {
+  padding-bottom: 1.5rem !important;
+  overscroll-behavior-x: contain;
+  touch-action: pan-y;
+}
+
 .movie-carousel-title {
   font-weight: 600;
   margin-bottom: 0rem;

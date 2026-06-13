@@ -1,35 +1,50 @@
-import { Swiper } from "swiper/react";
-import type { SwiperOptions } from "swiper/types";
+// src/components/Swiperjs.tsx
+import { Swiper as SwiperCore } from "swiper";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/free-mode";
 import "swiper/css/mousewheel";
-import { Navigation, FreeMode, Mousewheel } from "swiper/modules";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import { FreeMode, Mousewheel, Navigation, Scrollbar } from "swiper/modules";
+import { Swiper } from "swiper/react";
+import type { SwiperOptions } from "swiper/types";
 
 type SwiperjsProps = {
     children: React.ReactNode;
     breakpoints?: Record<number, SwiperOptions>;
-    onSwiper?: (swiper: any) => void;
+    onSwiper?: (swiper: SwiperCore) => void;
 };
 
 const Swiperjs: React.FC<SwiperjsProps> = ({ children, breakpoints, onSwiper }) => {
     return (
-        <Swiper
-            onSwiper={onSwiper}
-            modules={[Navigation, FreeMode, Mousewheel]}
-            freeMode={true}
-            mousewheel={{ forceToAxis: true }}
-            spaceBetween={24}
-            slidesPerGroup={1}
-            grabCursor={true}
-            loop={false}
-            breakpoints={breakpoints || {
-                320: { slidesPerView: 2 },
-                1024: { slidesPerView: 4 },
-            }}
-        >
-            {children}
-        </Swiper>
+        <div className="swiper-hardware-trap" style={{ width: "100%" }}>
+            <Swiper
+                onSwiper={onSwiper}
+                scrollbar={{
+                    draggable: true,
+                    hide: false,
+                }}
+                modules={[Navigation, FreeMode, Mousewheel, Scrollbar]}
+                freeMode={true}
+                mousewheel={{ 
+                    forceToAxis: true,
+                    releaseOnEdges: true, // Set back to true so regular scrolling feels natural
+                    sensitivity: 1 
+                }}
+                spaceBetween={24}
+                slidesPerGroup={1}
+                grabCursor={true}
+                loop={false}
+                breakpoints={
+                    breakpoints || {
+                        320: { slidesPerView: 2 },
+                        1024: { slidesPerView: 4 },
+                    }
+                }
+            >
+                {children}
+            </Swiper>
+        </div>
     );
 };
 
