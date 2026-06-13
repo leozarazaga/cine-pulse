@@ -1,4 +1,3 @@
-// src/components/Swiperjs.tsx
 import { Swiper as SwiperCore } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -28,7 +27,7 @@ const Swiperjs: React.FC<SwiperjsProps> = ({ children, breakpoints, onSwiper }) 
                 freeMode={true}
                 mousewheel={{ 
                     forceToAxis: true,
-                    releaseOnEdges: true, // Set back to true so regular scrolling feels natural
+                    releaseOnEdges: true,
                     sensitivity: 1 
                 }}
                 spaceBetween={24}
