@@ -10,7 +10,7 @@ const RecentlyViewedMovies = () => {
         <div>
             {recentlyViewed.length > 0 && <h2 className="section-title-header">Recently Viewed Movies</h2>}
             
-            <Swiperjs  breakpoints={{ 320: { slidesPerView: 2 }, 1024: { slidesPerView: 6.5 } }}>
+            <Swiperjs  breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
                 {recentlyViewed.map((movie) => (
                     <SwiperSlide>
                         <Link to={`/movie/${movie.id}`}>

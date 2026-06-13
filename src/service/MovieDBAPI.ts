@@ -7,6 +7,7 @@ import type {
     MovieCreditsResponse,
     MovieDetails,
     PersonDetails,
+    MovieImagesResponse,
 } from "../types/MovieDBTypes";
 
 const BEARER_TOKEN = import.meta.env.VITE_TMDB_BEARER_TOKEN;
@@ -75,4 +76,8 @@ export const similarMovies = (movieId: number) => {
 
 export const searchMovie = (query: string, page = 1) => {
     return get<PaginatedResponse<Movie>>(`/search/movie?query=${query}&page=${page}`);
+};
+
+export const movieImages = (movieId: number) => {
+    return get<MovieImagesResponse>(`/movie/${movieId}/images?include_image_language=en,null`);
 };

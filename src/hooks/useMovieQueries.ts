@@ -89,3 +89,10 @@ export const useMoviesInvolvedIn = (personId: number) => {
         queryFn: () => service.personMoviesInvolvedIn(personId),
     });
 };
+
+export const useMovieImages = (movieId: number) => {
+    return useQuery({
+        queryKey: ["movieImages", movieId],
+        queryFn: () => service.movieImages(movieId),
+    });
+};

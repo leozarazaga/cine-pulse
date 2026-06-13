@@ -59,6 +59,7 @@ export interface MovieDetails {
     title: string;
     poster_path: string;
     backdrop_path: string;
+    vote_average: number;
     tagline: string;
     overview: string;
     release_date: string;
@@ -114,4 +115,21 @@ export interface PersonDetails {
     place_of_birth: string | null;
     popularity: number;
     profile_path: string | null;
+}
+
+export interface ImageItem {
+    aspect_ratio: number;
+    height: number;
+    iso_639_1: string | null;
+    file_path: string;
+    vote_average: number;
+    vote_count: number;
+    width: number;
+}
+
+export interface MovieImagesResponse {
+    id: number;
+    backdrops: ImageItem[];
+    logos: ImageItem[];
+    posters: ImageItem[];
 }
