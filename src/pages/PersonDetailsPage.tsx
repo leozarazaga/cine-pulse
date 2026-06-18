@@ -1,8 +1,9 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
+import { SwiperSlide } from "swiper/react";
 import ErrorMessage from "../components/ErrorMessage";
 import LoadingSpinner from "../components/LoadingSpinner";
+import SectionCarousel from "../components/SectionCarousel";
 import TextExpander from "../components/TextExpander";
-import KnownForCarousel from "../components/actor/KnownForCarousel";
 import PersonSidebar from "../components/actor/PersonSidebar";
 import TopCriticallyAcclaimed from "../components/actor/TopCriticallyAcclaimed";
 import { useMoviesInvolvedIn, usePersonDetails } from "../hooks/useMovieQueries";
@@ -58,7 +59,18 @@ const PersonDetailsPage = () => {
                         <TopCriticallyAcclaimed movies={topCriticallyAcclaimed} />
 
                         {/* =============== Known For Carousel =============== */}
-                        <KnownForCarousel movies={carouselMovies} />
+                        <SectionCarousel title="Known For" breakpoints={{ 320: { slidesPerView: 2.5 }, 1024: { slidesPerView: 3.5 } }}>
+                            {carouselMovies.map((movie) => (
+                                <SwiperSlide key={movie.id}>
+                                    <div className="carousel-card">
+                                        <Link to={`/movie/${movie.id}`}>
+                                            <img src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`} alt={movie.title} />
+                                        </Link>
+                                        <p className="carousel-card-title">{movie.title}</p>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </SectionCarousel>
                     </article>
                 </div>
             </main>

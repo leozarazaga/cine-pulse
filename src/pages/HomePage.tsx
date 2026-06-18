@@ -19,8 +19,9 @@ const HomePage = () => {
                 <TrendingMoviesCarousel />
                 <MovieCarousel title="Now Playing" exploreLink="/now-playing" query={nowPlayingQuery} />
                 <MovieCarousel title="Top Rated" exploreLink="/top-rated" query={topRatedQuery} />
-                <RecentlyViewedMovies />
             </Container>
+
+            <RecentlyViewedMovies />
         </div>
     );
 };

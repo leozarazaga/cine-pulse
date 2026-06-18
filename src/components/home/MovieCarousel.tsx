@@ -44,7 +44,7 @@ const MovieCarousel = ({
                 </Link>
             </div>
 
-            <Swiperjs  breakpoints={{ 320: { slidesPerView: 2 }, 1024: { slidesPerView: 6.5 } }}>
+            <Swiperjs  breakpoints={{ 320: { slidesPerView: 2 }, 1024: { slidesPerView: 7.5 } }}>
                 {data.results.map((movie) => (
                     <SwiperSlide key={movie.id}>
                         <MovieCarouselCards movie={movie} />

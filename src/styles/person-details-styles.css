@@ -1,13 +1,3 @@
-:root {
-    --person-bg: #faf9f6;
-    --person-text: #1a1a1a;
-    --person-muted: #6c6c70;
-    --person-border: rgba(0, 0, 0, 0.08);
-    --person-card-bg: #ffffff;
-    --person-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
-    --person-accent: #b8860b;
-}
-
 html[data-theme="dark"] {
     --person-bg: #1e1e1e;
     --person-text: #e5e2e3;
@@ -134,33 +124,16 @@ html[data-theme="dark"] .profile-image {
 html[data-theme="dark"] .profile-title {
     background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
     -webkit-background-clip: text;
-    background-clip: text; 
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.section-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 1rem;
-}
-
-.section-header::after {
-    content: "";
-    flex-grow: 1;
-    height: 1px;
-    background-color: var(--person-border);
-}
 
 .person-bio-content {
     font-size: 1.1rem;
     line-height: 1.7;
     opacity: 0.9;
-    border-left: 3px solid var(--person-accent);
+    border-left: 3px solid #b8860b;
     padding-left: 1.5rem;
     margin-top: 1rem;
     color: var(--person-text);
@@ -243,57 +216,4 @@ html[data-theme="dark"] .profile-title {
     font-weight: 600;
     display: flex;
     align-items: center;
-}
-
-/* ==================================
-         KNOWN FOR CAROUSEL
-==================================== */
-.known-for-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.carousel-nav-buttons {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.custom-nav-btn {
-    background: var(--person-accent);
-    color: #1a1a1a;
-    border: 1px solid var(--person-border);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.person-movie-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.person-movie-card img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.person-movie-card:hover img {
-    transform: scale(1.04);
-}
-
-.person-movie-title {
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
-    color: var(--person-text);
 }

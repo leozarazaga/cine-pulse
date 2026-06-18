@@ -1,4 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+
 /* @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
@@ -8,6 +9,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --person-bg: #faf9f6;
+  --person-text: #1a1a1a;
+  --person-muted: #6c6c70;
+  --person-border: rgba(0, 0, 0, 0.08);
+  --person-card-bg: #ffffff;
+  --person-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+  --person-accent: #b8860b;
 }
 
 @font-face {
@@ -43,7 +54,6 @@ body {
   font-weight: 400;
 }
 
-
 .section-title-header {
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -51,11 +61,9 @@ body {
   font-weight: 600;
 }
 
-
 /* ========================== 
       DARK / LIGHT THEME   
 ============================= */
-
 html[data-theme="dark"] body {
   background-color: #1e1e1e;
   color: white;
@@ -65,12 +73,9 @@ html[data-theme="dark"] body {
   }
 }
 
-
-
 /* ========================== 
           SWIPER.JS   
 ============================= */
-
 .swiper {
   padding-bottom: 1.5rem !important;
   overscroll-behavior-x: contain;
@@ -102,7 +107,6 @@ html[data-theme="dark"] body {
   margin-top: -23px !important;
 }
 
-
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 1.1rem !important;
@@ -129,9 +133,8 @@ html[data-theme="dark"] body {
 }
 
 /* ========================== 
-     LOADING SPINNER   
+       LOADING SPINNER   
 ============================= */
-
 .spinner-wrapper {
   position: fixed;
   top: 0;
@@ -169,11 +172,9 @@ html[data-theme="dark"] body {
   }
 }
 
-
 /* ========================== 
   LOADING CAROUSEL SPINNER   
 ============================= */
-
 .loading-carousel-wrapper {
   display: flex;
   justify-content: center;
@@ -205,12 +206,10 @@ html[data-theme="dark"] body {
   }
 }
 
-
 .genre-card-container {
   border: 1px solid #d1d1d1;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
-
 
 /* ========= PERSON CARD DETAILS PAGE  ========= */
 .person-card-details-page {
@@ -236,4 +235,82 @@ html[data-theme="dark"] body {
   align-items: center;
   margin: 2rem 0 1rem;
   flex-wrap: wrap;
+}
+
+/* ====================================
+         SECTION CAROUSEL
+======================================= */
+.section-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
+}
+
+.section-header::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--person-border);
+}
+
+.section-carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.custom-nav-btn {
+  background: #b8860b;
+  color: #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.custom-nav-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.85;
+}
+
+.carousel-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.carousel-card img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.carousel-card-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  color: var(--person-text)
+}
+
+.recently-viewed-section .swiper-scrollbar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.recently-viewed-section .swiper-scrollbar-drag {
+  background: rgba(255, 255, 255, 0.7);
 }

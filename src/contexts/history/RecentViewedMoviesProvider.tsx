@@ -23,7 +23,11 @@ const RecentViewedMoviesProvider: React.FC<RecentViewedMoviesProviderProps> = ({
         });
     }, []);
 
-    return <RecentViewedMoviesContext.Provider value={{ recentlyViewed, addToRecentlyViewed }}>{children}</RecentViewedMoviesContext.Provider>;
-};
+    return (
+        <RecentViewedMoviesContext.Provider value={{ recentlyViewed, addToRecentlyViewed }}>
+            {children}
+        </RecentViewedMoviesContext.Provider>
+        
+)};
 
 export default RecentViewedMoviesProvider;

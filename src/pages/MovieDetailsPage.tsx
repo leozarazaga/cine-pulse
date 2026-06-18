@@ -7,7 +7,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { MovieCarouselCards } from "../components/MovieCarouselCards";
 import RecentlyViewedMovies from "../components/RecentlyViewedMovies";
-import Swiperjs from "../components/Swiperjs";
+import SectionCarousel from "../components/SectionCarousel";
 import useRecentViewedMovies from "../contexts/history/useRecentViewedMovies";
 import { useMovieCredits, useMovieDetails, useMovieImages, useSimilarMovies } from "../hooks/useMovieQueries";
 import "../styles/movie-details-page.css";
@@ -54,7 +54,6 @@ const MovieDetailsPage = () => {
     return (
         <>
             <title>{movieData.title}</title>
-
             {/* ================= MOVIE HERO ================= */}
             <div className="movie-hero-wrapper" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${movieData.backdrop_path})` }}>
                 <div className="movie-hero-overlay"></div>
@@ -124,7 +123,6 @@ const MovieDetailsPage = () => {
                                     <h4 className="movie-section-label">Top Cast</h4>
                                     <div className="cast-circles-container">
                                         {topCast.map((actor) => (
-                                            /* FIX 2: Combining id and character to guarantee uniqueness for double roles */
                                             <Link to={`/person/${actor.id}`} key={`${actor.id}-${actor.character}`} className="cast-circle-item">
                                                 <img
                                                     src={
@@ -145,39 +143,31 @@ const MovieDetailsPage = () => {
                     </Row>
                 </Container>
             </div>
-
             {/* ================= LOWER CONTENT CAROUSELS ================= */}
             <section className="carousel-section my-5">
                 <Container>
-                    <h4 className="mb-4 fw-bold">Full Cast</h4>
-                    <Swiperjs breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
+                    <SectionCarousel title="Full Cast" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
                         {creditsData.cast.map((actor) => (
                             <SwiperSlide key={`${actor.id}-${actor.character}`}>
                                 <ActorsCarouselCards actor={actor} />
                             </SwiperSlide>
                         ))}
-                    </Swiperjs>
+                    </SectionCarousel>
                 </Container>
             </section>
-
             <section className="carousel-section my-5">
                 <Container>
-                    <h4 className="mb-4 fw-bold">Similar Movies</h4>
-                    <Swiperjs breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
+                    <SectionCarousel title="Similar Movies" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
                         {similarMovieData.results.map((movie) => (
-                            <SwiperSlide key={movie.id}>
+                            <SwiperSlide key={`${movie.id}`}>
                                 <MovieCarouselCards movie={movie} />
                             </SwiperSlide>
                         ))}
-                    </Swiperjs>
+                    </SectionCarousel>
                 </Container>
             </section>
 
-            <section className="my-5">
-                <Container>
-                    <RecentlyViewedMovies />
-                </Container>
-            </section>
+            <RecentlyViewedMovies />
         </>
     );
 };
