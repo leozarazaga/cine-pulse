@@ -2,14 +2,15 @@ import { Route, Routes } from "react-router";
 import Navigation from "./components/navbar/Navigation";
 import HomePage from "./pages/HomePage";
 
-import MovieDetailsPage from "./pages/MovieDetailsPage";
-import PersonDetailsPage from "./pages/PersonDetailsPage";
 import GenresPage from "./pages/GenresPage";
-import SearchResultPage from "./pages/SearchResultPage";
-import NowTrendingMoviesPage from "./pages/NowTrendingMoviesPage";
+import MovieCastPage from "./pages/MovieCastPage";
+import MovieDetailsPage from "./pages/MovieDetailsPage";
 import NowPlayingMoviesPage from "./pages/NowPlayingMoviesPage";
-import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
+import NowTrendingMoviesPage from "./pages/NowTrendingMoviesPage";
+import PersonDetailsPage from "./pages/PersonDetailsPage";
 import PopularPeoplePage from "./pages/PopularPeoplePage";
+import SearchResultPage from "./pages/SearchResultPage";
+import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/genre/:id" element={<GenresPage />} />
                 <Route path="/movie/:id" element={<MovieDetailsPage />} />
                 <Route path="/person/:id" element={<PersonDetailsPage />} />
+                <Route path="/movie/:id/cast" element={<MovieCastPage />} />
                 <Route path="/popular-people" element={<PopularPeoplePage />} />
                 <Route path="/search" element={<SearchResultPage />} />
 

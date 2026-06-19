@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router";
 import { SwiperSlide } from "swiper/react";
-import { ActorsCarouselCards } from "../components/ActorsCarouselCards";
 import ErrorMessage from "../components/ErrorMessage";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { MovieCarouselCards } from "../components/MovieCarouselCards";
@@ -92,9 +91,8 @@ const MovieDetailsPage = () => {
                             )}
                         </Col>
 
-                        {/* =============== SCENES & TOP CAST =============== */}
+                        {/* =============== SCENES =============== */}
                         <Col lg={12}>
-                            {/* Scenes Images */}
                             {sneakPeekBackdrops.length > 0 && (
                                 <div className="mb-4">
                                     <h4 className="movie-section-label">Scenes</h4>
@@ -117,10 +115,32 @@ const MovieDetailsPage = () => {
                                 </div>
                             )}
 
-                            {/* Top Cast */}
+                            {/* =============== TOP CAST =============== */}
                             {topCast.length > 0 && (
                                 <div>
-                                    <h4 className="movie-section-label">Top Cast</h4>
+                                    <div className="movie-header-wrap">
+                                        <Link to={`/movie/${movieData.id}/cast`} className="movie-header-link">
+                                            <h4 className="movie-header-title">Top Cast</h4>
+
+                                            <span className="movie-header-counter">
+                                                {creditsData.cast.length > 99 ? "99+" : creditsData.cast.length}
+                                            </span>
+
+                                            <svg
+                                                className="movie-header-chevron"
+                                                width="23"
+                                                height="23"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                strokeWidth="3"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <polyline points="9 18 15 12 9 6"></polyline>
+                                            </svg>
+                                        </Link>
+                                    </div>
+
                                     <div className="cast-circles-container">
                                         {topCast.map((actor) => (
                                             <Link to={`/person/${actor.id}`} key={`${actor.id}-${actor.character}`} className="cast-circle-item">
@@ -143,18 +163,8 @@ const MovieDetailsPage = () => {
                     </Row>
                 </Container>
             </div>
+
             {/* ================= LOWER CONTENT CAROUSELS ================= */}
-            <section className="carousel-section my-5">
-                <Container>
-                    <SectionCarousel title="Full Cast" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
-                        {creditsData.cast.map((actor) => (
-                            <SwiperSlide key={`${actor.id}-${actor.character}`}>
-                                <ActorsCarouselCards actor={actor} />
-                            </SwiperSlide>
-                        ))}
-                    </SectionCarousel>
-                </Container>
-            </section>
             <section className="carousel-section my-5">
                 <Container>
                     <SectionCarousel title="Similar Movies" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
