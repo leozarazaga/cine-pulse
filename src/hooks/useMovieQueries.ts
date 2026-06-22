@@ -103,3 +103,11 @@ export const useMovieVideos = (movieId: number) => {
         queryFn: () => service.movieVideos(movieId),
     });
 };
+
+export const useUpcomingTrailers = () => {
+    return useQuery({
+        queryKey: ["upcoming-trailers"],
+        queryFn: service.upcomingTrailersList,
+        staleTime: 1000 * 60 * 10, 
+    });
+};

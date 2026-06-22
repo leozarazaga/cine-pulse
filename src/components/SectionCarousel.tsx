@@ -14,7 +14,6 @@ const SectionCarousel = ({ title, children, breakpoints, variant = "dark" }: Sec
     const swiperRef = useRef<SwiperCore | null>(null);
 
     return (
-        /* Dynamically attach a variant class modifier onto the section node */
         <section className={`carousel-variant-${variant}`}>
             <div className="section-carousel-header">
                 <h4 className="section-header" style={{ marginBottom: 0 }}>

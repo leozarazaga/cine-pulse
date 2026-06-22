@@ -86,3 +86,29 @@ export const movieImages = (movieId: number) => {
 export const movieVideos = (movieId: number) => {
     return get<MovieVideosResponse>(`/movie/${movieId}/videos`);
 };
+
+export const upcomingTrailersList = async () => {
+    const listData = await get<PaginatedResponse<Movie>>("movie/now_playing?page=1&include_adult=false");
+
+    const topMovies = listData.results.slice(0, 8);
+
+    const moviesWithVideos = await Promise.all(
+        topMovies.map(async (movie) => {
+            try {
+                const videoData = await get<MovieVideosResponse>(`/movie/${movie.id}/videos`);
+                return {
+                    ...movie,
+                    videos: videoData,
+                };
+            } catch (error) {
+                console.error(`Failed to fetch videos for movie ${movie.id}`, error);
+                return movie;
+            }
+        }),
+    );
+
+    return {
+        ...listData,
+        results: moviesWithVideos,
+    };
+};

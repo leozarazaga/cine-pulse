@@ -61,17 +61,6 @@ body {
   font-weight: 600;
 }
 
-/* ========================== 
-      DARK / LIGHT THEME   
-============================= */
-html[data-theme="dark"] body {
-  background-color: #1e1e1e;
-  color: white;
-
-  .trending-carousel-explore-all {
-    color: white;
-  }
-}
 
 /* ========================== 
           SWIPER.JS   
@@ -324,10 +313,24 @@ html[data-theme="dark"] body {
   color: var(--person-text)
 }
 
-.recently-viewed-section .swiper-scrollbar {
-  background: rgba(255, 255, 255, 0.1);
+
+/* ====================================
+              SCROLLBARS 
+======================================= */
+.swiper-scrollbar {
+  background: rgba(0, 0, 0, 0.08) !important;
 }
 
-.recently-viewed-section .swiper-scrollbar-drag {
-  background: rgba(255, 255, 255, 0.7);
+.swiper-scrollbar-drag {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+
+.bg-black .swiper-scrollbar,
+.bg-dark .swiper-scrollbar {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-black .swiper-scrollbar-drag,
+.bg-dark .swiper-scrollbar-drag {
+  background: rgba(255, 255, 255, 0.4) !important;
 }

@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, NavLink } from "react-router";
 import navbarLogo from "../../assets/images/TMDB-logo.svg";
-import useTheme from "../../contexts/theme/useTheme";
 import { useGenres } from "../../hooks/useMovieQueries";
 import "../../styles/navbar.css";
 import LoadingSpinner from "../LoadingSpinner";
@@ -15,8 +14,6 @@ const Navigation = () => {
     const [showPeople, setShowPeople] = useState(false);
     const [showGenres, setShowGenres] = useState(false);
     const { data, isLoading, isError, error } = useGenres();
-
-    const { isDarkMode, toggleTheme } = useTheme();
 
     if (isLoading) return <LoadingSpinner />;
     if (isError) return <p>Error: {error.message} ⛔️</p>;
@@ -79,12 +76,6 @@ const Navigation = () => {
                             ))}
                         </NavDropdown>
                     </Nav>
-
-                    <div className="ms-auto d-flex align-items-center gap-2">
-                        <button onClick={toggleTheme} className="navbar-dark-light-btn">
-                            {isDarkMode ? "☀️" : "🌙"}
-                        </button>
-                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

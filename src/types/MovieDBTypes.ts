@@ -23,6 +23,9 @@ export interface Movie {
     vote_count: number;
     video: boolean;
     genre_ids: number[];
+    videos?: {
+        results: Video[];
+    };
 }
 
 export interface PopularPerson {
