@@ -83,3 +83,41 @@
 .toggle-background.left {
   transform: translateX(0%);
 }
+
+.carousel-header-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0 1rem;
+}
+
+.carousel-header-wrapper::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 24px;
+  background-color: #b8860b; 
+  margin-right: 12px;
+  border-radius: 2px;
+}
+
+.carousel-header-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #1a1a1a;
+  margin: 0 !important;
+}
+
+.carousel-explore-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.carousel-explore-all:hover {
+  color: #b8860b; 
+}

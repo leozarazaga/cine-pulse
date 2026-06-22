@@ -24,8 +24,8 @@ const TrendingMoviesCarousel = () => {
     }, [queryClient]);
 
     return (
-        <MovieCarousel title="Trending" exploreLink="/trending" query={trendingQuery} sectionClassName="trending-movies-background">
-            <div className="trending-buttons-wrapper">
+        <MovieCarousel title="Trending" exploreLink="/trending" query={trendingQuery} sectionClassName="trending-movies-background container">
+            <div className="trending-buttons-wrapper" >
                 <div className={`toggle-background ${trendingPeriod === "week" ? "right" : "left"}`} />
                 <button className={trendingPeriod === "day" ? "active" : ""} onClick={() => setTrendingPeriod("day")}>
                     Today
