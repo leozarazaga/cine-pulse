@@ -8,6 +8,7 @@ import type {
     MovieDetails,
     PersonDetails,
     MovieImagesResponse,
+    MovieVideosResponse,
 } from "../types/MovieDBTypes";
 
 const BEARER_TOKEN = import.meta.env.VITE_TMDB_BEARER_TOKEN;
@@ -71,7 +72,7 @@ export const personMoviesInvolvedIn = (personId: number) => {
 };
 
 export const similarMovies = (movieId: number) => {
-    return get<PaginatedResponse<Movie>>(`/movie/${movieId}/similar`);
+    return get<PaginatedResponse<Movie>>(`/movie/${movieId}/recommendations`);
 };
 
 export const searchMovie = (query: string, page = 1) => {
@@ -80,4 +81,8 @@ export const searchMovie = (query: string, page = 1) => {
 
 export const movieImages = (movieId: number) => {
     return get<MovieImagesResponse>(`/movie/${movieId}/images?include_image_language=en,null`);
+};
+
+export const movieVideos = (movieId: number) => {
+    return get<MovieVideosResponse>(`/movie/${movieId}/videos`);
 };

@@ -96,3 +96,10 @@ export const useMovieImages = (movieId: number) => {
         queryFn: () => service.movieImages(movieId),
     });
 };
+
+export const useMovieVideos = (movieId: number) => {
+    return useQuery({
+        queryKey: ["movie-videos", movieId],
+        queryFn: () => service.movieVideos(movieId),
+    });
+};

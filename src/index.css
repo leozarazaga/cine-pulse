@@ -243,11 +243,20 @@ html[data-theme="dark"] body {
 .section-header {
   display: flex;
   align-items: center;
-  font-size: 1.1rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+  margin-right: 8px;
+}
+
+.section-header::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 22px;
+  background-color: #b8860b;
+  margin-right: 12px;
+  border-radius: 2px;
 }
 
 .section-header::after {
@@ -262,6 +271,14 @@ html[data-theme="dark"] body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+}
+
+.carousel-variant-dark .section-header {
+  color: #1a1a1a;
+}
+
+.carousel-variant-light .section-header {
+  color: #fff;
 }
 
 .carousel-nav-buttons {

@@ -213,7 +213,7 @@
   font-size: 1.25rem;
   margin-bottom: 0;
   margin-right: 8px;
-  color: #ffff
+  color: #ffff;
 }
 
 .movie-header-counter {
@@ -231,8 +231,33 @@
   stroke: #b8860b;
 }
 
+/* ====================================
+           TRAILER SECTION
+======================================= */
 
+.trailers-section {
+  background-color: #fff;
+}
 
+.movie-trailer-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.movie-trailer-wrap h4 {
+  color: #1a1a1a;
+}
+
+.movie-trailer-wrap::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 22px;
+  background-color: #b8860b;
+  margin-right: 12px;
+  border-radius: 2px;
+}
 
 /* ====================================
           LOWER CAROUSELS

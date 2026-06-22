@@ -12,7 +12,7 @@ const RecentlyViewedMovies = () => {
     return (
         <section className="recently-viewed-section py-5 bg-black text-white position-relative">
             <Container>
-                <SectionCarousel title="Recently viewed" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 7.5 } }}>
+                <SectionCarousel title="Recently viewed" variant="light" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 7.5 } }}>
                     {recentlyViewed.map((movie) => (
                         <SwiperSlide key={movie.id}>
                             <div className="carousel-card">

@@ -8,7 +8,7 @@ import { MovieCarouselCards } from "../components/MovieCarouselCards";
 import RecentlyViewedMovies from "../components/RecentlyViewedMovies";
 import SectionCarousel from "../components/SectionCarousel";
 import useRecentViewedMovies from "../contexts/history/useRecentViewedMovies";
-import { useMovieCredits, useMovieDetails, useMovieImages, useSimilarMovies } from "../hooks/useMovieQueries";
+import { useMovieCredits, useMovieDetails, useMovieImages, useMovieVideos, useSimilarMovies } from "../hooks/useMovieQueries";
 import "../styles/movie-details-page.css";
 
 const MovieDetailsPage = () => {
@@ -21,6 +21,7 @@ const MovieDetailsPage = () => {
     const { data: creditsData, isLoading: isCreditsLoading, isError: isCreditsError, error: creditsError } = useMovieCredits(movieId);
     const { data: similarMovieData, isLoading: similarMovieisLoading, isError: isSimilarError, error: similarError } = useSimilarMovies(movieId);
     const { data: imagesData, isLoading: isImagesLoading, isError: isImagesError, error: imagesError } = useMovieImages(movieId);
+    const { data: videosData, isLoading: isVideosLoading, isError: isVideosError, error: videosError } = useMovieVideos(movieId);
 
     // Sync History Tracking
     useEffect(() => {
@@ -37,18 +38,20 @@ const MovieDetailsPage = () => {
     if (!creditsData || isCreditsLoading) return <LoadingSpinner />;
     if (!similarMovieData || similarMovieisLoading) return <LoadingSpinner />;
     if (!imagesData || isImagesLoading) return <LoadingSpinner />;
+    if (!videosData || isVideosLoading) return <LoadingSpinner />;
 
     if (isMovieError) return <ErrorMessage message={movieError.message} />;
     if (isCreditsError) return <ErrorMessage message={creditsError.message} />;
     if (isSimilarError) return <ErrorMessage message={similarError.message} />;
     if (isImagesError) return <ErrorMessage message={imagesError.message} />;
+    if (isVideosError) return <ErrorMessage message={videosError.message} />;
 
     const releaseYear = movieData.release_date.slice(0, 4);
 
     const sneakPeekBackdrops = imagesData.backdrops.slice(0, 4);
-    const topCast = creditsData.cast.slice(0, 6);
-
+    const topCast = creditsData.cast.slice(0, 7);
     const principalCrew = creditsData.crew.filter((member) => ["Director", "Writer", "Screenplay", "Story"].includes(member.job));
+    const trailers = videosData.results.filter((video) => video.site === "YouTube" && video.type === "Trailer").slice(0, 2);
 
     return (
         <>
@@ -164,10 +167,38 @@ const MovieDetailsPage = () => {
                 </Container>
             </div>
 
+            {/* ================= VIDEOS SECTION ================= */}
+            {trailers.length > 0 && (
+                <section className="trailers-section py-5">
+                    <Container>
+                        <div className="movie-trailer-wrap">
+                            <div style={{ cursor: "default" }}>
+                                <h4 className="movie-header-title">Trailer</h4>
+                            </div>
+                        </div>
+
+                        <Row className="mt-4">
+                            {trailers.map((trailer) => (
+                                <Col md={6} key={trailer.id} className="mb-4">
+                                    <div className="ratio ratio-16x9">
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${trailer.key}`}
+                                            title={trailer.name}
+                                            allowFullScreen
+                                            style={{ borderRadius: "8px", border: "none" }}
+                                        ></iframe>
+                                    </div>
+                                </Col>
+                            ))}
+                        </Row>
+                    </Container>
+                </section>
+            )}
+
             {/* ================= LOWER CONTENT CAROUSELS ================= */}
             <section className="carousel-section my-5">
                 <Container>
-                    <SectionCarousel title="Similar Movies" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
+                    <SectionCarousel title="More Like This"  variant="dark" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
                         {similarMovieData.results.map((movie) => (
                             <SwiperSlide key={`${movie.id}`}>
                                 <MovieCarouselCards movie={movie} />
