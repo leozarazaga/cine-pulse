@@ -11,7 +11,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <title>Home</title>
+            <title>TMDB</title>
 
             <HeroSection />
             <TrendingMoviesCarousel />

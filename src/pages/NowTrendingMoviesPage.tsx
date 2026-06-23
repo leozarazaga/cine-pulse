@@ -35,9 +35,11 @@ const NowTrendingMoviesPage = () => {
 
     return (
         <div>
-            <Container className="my-4">
-                <div className="d-flex align-items-center mb-4">
-                    <h2 className="section-title-header my-0 fs-3">Trending</h2>
+            <Container>
+                <div className="d-flex align-items-center ">
+                    <div className="page-header-wrapper">
+                        <h2 className="page-header-title">Trending</h2>
+                    </div>
 
                     <div className="trending-buttons-wrapper mx-3 my-3">
                         <div className={`toggle-background ${period === "week" ? "right" : "left"}`} />

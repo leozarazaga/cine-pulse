@@ -20,7 +20,9 @@ const PopularPeoplePage = () => {
     return (
         <div>
             <Container className="my-4">
-                <h2 className="mb-4">Popular Actors</h2>
+               <div className="page-header-wrapper">
+                    <h2 className="page-header-title">Popular Actors</h2>
+                </div>
 
                 <Row xs={2} sm={3} md={4} lg={5} className="g-4">
                     {data.results.map((person) => (

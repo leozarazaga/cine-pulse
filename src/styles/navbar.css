@@ -23,9 +23,9 @@
     padding: 4px 8px;
 }
 
-/* .navbar-container .dropdown-toggle::after {
+.navbar-container .dropdown-toggle::after {
     display: none !important;
-} */
+}
 
 .premium-dropdown .dropdown-menu {
     background-color: #ffffff;

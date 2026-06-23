@@ -18,9 +18,9 @@ const MovieCastPage = () => {
     if (isError) return <ErrorMessage message={error.message} />;
 
     return (
-        <Container className="py-5">
-            <div className="mb-4">
-                <h1 className="fw-bold mb-4">Full Cast</h1>
+        <Container>
+            <div className="page-header-wrapper">
+                <h2 className="page-header-title">Full Cast</h2>
             </div>
 
             <Row className="g-4">

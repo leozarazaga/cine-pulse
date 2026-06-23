@@ -348,6 +348,37 @@ body {
   color: var(--person-text)
 }
 
+/* ====================================
+   GLOBAL BRANDED PAGE HEADERS
+======================================= */
+
+.page-header-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-header-wrapper::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 22px;
+  background-color: #b8860b;
+  margin-right: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.page-header-title {
+  font-family: 'SourceSansPro-Bold', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 !important;
+  line-height: 1.2;
+}
+
 
 /* ====================================
               SCROLLBARS 

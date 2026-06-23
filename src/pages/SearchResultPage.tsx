@@ -27,10 +27,11 @@ const SearchResultPage = () => {
                     (searchMovieData.results.length === 0 ? (
                         <p className="fs-5">No results found for "{query}"</p>
                     ) : (
-                        <p className="fs-5">Search results for "{query}"</p>
+                        <div className="page-header-wrapper">
+                            <h2 className="page-header-title">Search results for "{query}"</h2>
+                        </div>
                     ))}
 
-                {/* <h1 className="mb-4">Movies</h1> */}
                 <Row xs={2} sm={3} md={4} lg={5} className="g-4">
                     {searchMovieData.results.map((movie) => (
                         <Col key={movie.id}>

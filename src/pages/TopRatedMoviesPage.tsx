@@ -22,8 +22,10 @@ const TopRatedMoviesPage = () => {
         <div>
             <title>Top Rated Movies</title>
 
-            <Container className="my-4">
-                <h2 className="section-title-header my-0 fs-3 mb-4">Top Rated Movies</h2>
+            <Container>
+                <div className="page-header-wrapper">
+                    <h2 className="page-header-title">Top Rated</h2>
+                </div>
 
                 <Row xs={2} sm={3} md={4} lg={5} className="g-4">
                     {data.results.map((movie) => (
