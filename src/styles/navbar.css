@@ -1,44 +1,74 @@
+.navbar-container {
+    background-color: #032541;
+    /* Brand Blue */
+    padding-top: 14px;
+    padding-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .navbar-logo {
-    height: 20px;
+    height: 22px;
     width: auto;
 }
 
-.navbar-container {
-    background-color: #032541;
+.navbar-menu-title {
+    font-family: 'SourceSansPro-Semibold', sans-serif;
+    font-size: 1rem;
+    color: #ffffff !important;
+    padding: 4px 8px;
 }
 
-.navbar-container .dropdown-toggle::after {
-    display: none
+/* .navbar-container .dropdown-toggle::after {
+    display: none !important;
+} */
+
+.premium-dropdown .dropdown-menu {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 4px 0;
+    margin-top: -5px !important;
+    min-width: 140px;
 }
 
-.navbar-toggler {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    box-shadow: none !important;
+.premium-dropdown .dropdown-item {
+    font-family: 'SourceSansPro-Regular', sans-serif;
+    font-size: 0.95rem;
+    color: #333333 !important;
+    /* Neutral dark text */
+    padding: 8px 16px;
+    /* Tightened horizontal padding */
+
 }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+
+.premium-dropdown .dropdown-item:hover {
+    background-color: #eaeaea;
 }
 
-.navbar-dark-light-btn {
-    background-color: #032541;
-    border-color: #032541;
-    border: none;
-    outline: none;
-    font-size: 1.4rem;
-    transition: 0.5s ease;
+/* ====================================
+   CLEAN GENRE GRID 
+======================================= */
+
+.genre-megamenu .dropdown-menu {
+    min-width: 400px;
+    /* Reduced multi-column width */
+    padding: 8px;
 }
 
-.navbar-dark-light-btn:hover {
-    transform: rotate(-30deg);
-    background-color: #032541;
-    border-color: #032541;
-    border: none;
-    outline: none;
+.premium-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
 }
 
-.navbar-container .dropdown-item:hover {
-    background-color: #d1d1d1;
+.grid-dropdown-item {
+    border-radius: 2px;
+    padding: 6px 12px !important;
 }

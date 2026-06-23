@@ -12,29 +12,26 @@ const Navigation = () => {
     const [showMovies, setShowMovies] = useState(false);
     const [showPeople, setShowPeople] = useState(false);
     const [showGenres, setShowGenres] = useState(false);
-    const { data, isLoading, isError, error } = useGenres();
-
-    if (isLoading) return null;
-    if (isError) return <p>Error: {error.message} ⛔️</p>;
-    if (!data) return;
+    const { data, isLoading, isError } = useGenres();
 
     return (
-        <Navbar expand="lg" className="navbar-container">
+        <Navbar expand="lg" className="navbar-container" variant="dark">
             <Container>
-                <Navbar.Brand as={Link} to={"/"}>
+                <Navbar.Brand as={Link} to={"/"} className="navbar-brand-wrapper">
                     <img src={navbarLogo} alt="The Movie Database Logo" className="navbar-logo" />
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="navbarNav" />
                 <Navbar.Collapse id="navbarNav">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto navbar-links-nav">
                         <NavDropdown
-                            title={<span className="text-white fs-6 mx-2">Movies</span>}
+                            title={<span className="navbar-menu-title">Movies</span>}
                             id="movies-dropdown"
                             show={showMovies}
                             onMouseEnter={() => setShowMovies(true)}
                             onMouseLeave={() => setShowMovies(false)}
                             renderMenuOnMount
+                            className="premium-dropdown"
                         >
                             <NavDropdown.Item as={NavLink} to="/trending">
                                 Trending
@@ -48,12 +45,13 @@ const Navigation = () => {
                         </NavDropdown>
 
                         <NavDropdown
-                            title={<span className="text-white fs-6 mx-2">Actors</span>}
+                            title={<span className="navbar-menu-title">Actors</span>}
                             id="people-dropdown"
                             show={showPeople}
                             onMouseEnter={() => setShowPeople(true)}
                             onMouseLeave={() => setShowPeople(false)}
                             renderMenuOnMount
+                            className="premium-dropdown"
                         >
                             <NavDropdown.Item as={NavLink} to="/popular-people">
                                 Popular Actors
@@ -61,18 +59,23 @@ const Navigation = () => {
                         </NavDropdown>
 
                         <NavDropdown
-                            title={<span className="text-white fs-6 mx-2">Genres</span>}
+                            title={<span className="navbar-menu-title">Genres</span>}
                             id="genres-dropdown"
                             show={showGenres}
                             onMouseEnter={() => setShowGenres(true)}
                             onMouseLeave={() => setShowGenres(false)}
                             renderMenuOnMount
+                            className="premium-dropdown genre-megamenu"
                         >
-                            {data.genres.map((genre) => (
-                                <NavDropdown.Item key={genre.id} as={NavLink} to={`/genre/${genre.id}`}>
-                                    {genre.name}
-                                </NavDropdown.Item>
-                            ))}
+                            <div className="premium-menu-grid">
+                                {!isLoading &&
+                                    !isError &&
+                                    data?.genres.map((genre) => (
+                                        <NavDropdown.Item key={genre.id} as={NavLink} to={`/genre/${genre.id}`} className="grid-dropdown-item">
+                                            {genre.name}
+                                        </NavDropdown.Item>
+                                    ))}
+                            </div>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
