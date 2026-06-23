@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router";
 import { SwiperSlide } from "swiper/react";
-import ErrorMessage from "../components/ErrorMessage";
-import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorMessage from "../components/ui/ErrorMessage";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
 import { MovieCarouselCards } from "../components/MovieCarouselCards";
 import RecentlyViewedMovies from "../components/RecentlyViewedMovies";
 import SectionCarousel from "../components/SectionCarousel";
@@ -198,7 +198,11 @@ const MovieDetailsPage = () => {
             {/* ================= LOWER CONTENT CAROUSELS ================= */}
             <section className="carousel-section my-5">
                 <Container>
-                    <SectionCarousel title="More Like This"  variant="dark" breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}>
+                    <SectionCarousel
+                        title="More Like This"
+                        variant="dark"
+                        breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 6.5 } }}
+                    >
                         {similarMovieData.results.map((movie) => (
                             <SwiperSlide key={`${movie.id}`}>
                                 <MovieCarouselCards movie={movie} />

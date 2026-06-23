@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router";
-import ErrorMessage from "../components/ErrorMessage";
-import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorMessage from "../components/ui/ErrorMessage";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
 import { useMovieCredits } from "../hooks/useMovieQueries";
 import "../styles/movie-cast-page.css";
 

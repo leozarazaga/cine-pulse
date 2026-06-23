@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { SwiperSlide } from "swiper/react";
-import { useUpcomingTrailers } from "../hooks/useMovieQueries";
+import { useUpcomingTrailers } from "../../hooks/useMovieQueries";
+import { TrailerCardSkeleton } from "../skeletons/TrailerCardSkeleton";
 import "../styles/latest-trailers.css";
-import SectionCarousel from "./SectionCarousel";
-import { TrailerCardSkeleton } from "./skeletons/TrailerCardSkeleton";
+import SectionCarousel from "../ui/SectionCarousel";
 
 const LatestTrailers = () => {
     const { data, isLoading, isError } = useUpcomingTrailers();

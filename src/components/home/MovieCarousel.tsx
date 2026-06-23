@@ -2,10 +2,10 @@ import type { UseQueryResult } from "@tanstack/react-query";
 import { Link } from "react-router";
 import { SwiperSlide } from "swiper/react";
 import type { Movie, PaginatedResponse } from "../../types/MovieDBTypes";
-import ErrorMessage from "../ErrorMessage";
-import { MovieCarouselCards } from "../MovieCarouselCards";
-import { MovieCardSkeleton } from "../skeletons/MovieCardSkeleton"; 
-import Swiperjs from "../Swiperjs";
+import { MovieCardSkeleton } from "../skeletons/MovieCardSkeleton";
+import ErrorMessage from "../ui/ErrorMessage";
+import { MovieCarouselCards } from "../ui/MovieCarouselCards";
+import Swiperjs from "../ui/Swiperjs";
 
 interface MovieCarouselProps {
     title: string;
@@ -33,7 +33,7 @@ const MovieCarousel = ({
     const skeletonItems = Array.from({ length: 7 });
 
     return (
-        <section className={sectionClassName} >
+        <section className={sectionClassName}>
             <div className="carousel-header-wrapper">
                 <div className={headerClassName} style={{ margin: 0, width: "100%" }}>
                     <div className={titleGroupClassName}>

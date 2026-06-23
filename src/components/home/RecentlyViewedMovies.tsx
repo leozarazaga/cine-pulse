@@ -1,8 +1,8 @@
 import { Container } from "react-bootstrap";
 import { Link } from "react-router";
 import { SwiperSlide } from "swiper/react";
-import useRecentViewedMovies from "../contexts/history/useRecentViewedMovies";
-import SectionCarousel from "./SectionCarousel";
+import useRecentViewedMovies from "../../contexts/history/useRecentViewedMovies";
+import SectionCarousel from "../ui/SectionCarousel";
 
 const RecentlyViewedMovies = () => {
     const { recentlyViewed } = useRecentViewedMovies();

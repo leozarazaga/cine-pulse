@@ -1,8 +1,8 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router";
-import ErrorMessage from "../components/ErrorMessage";
-import LoadingSpinner from "../components/LoadingSpinner";
-import Pagination from "../components/Pagination";
+import ErrorMessage from "../components/ui/ErrorMessage";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
+import Pagination from "../components/ui/Pagination";
 import { isoToFormattedString } from "../utils/formatDate";
 import { useNowPlayingMovies } from "../hooks/useMovieQueries";
 

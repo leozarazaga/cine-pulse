@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import { SwiperSlide } from "swiper/react";
-import { usePopularPeople } from "../hooks/useMovieQueries";
-import "../styles/popular-actors.css";
-import Swiperjs from "./Swiperjs";
+import { usePopularPeople } from "../../hooks/useMovieQueries";
+import "../../styles/popular-actors.css";
+import Swiperjs from "../ui/Swiperjs";
 
 const PopularActorsCarousel = () => {
     const { data, isLoading, isError } = usePopularPeople(1);

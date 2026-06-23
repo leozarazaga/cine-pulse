@@ -1,6 +1,6 @@
-import "../styles/search-form-styles.css";
 import { useState } from "react";
 import { Form, FormControl, InputGroup } from "react-bootstrap";
+import "../../styles/search-form-styles.css";
 
 interface SearchFormProps {
     onSearch: (searchInput: string) => void;

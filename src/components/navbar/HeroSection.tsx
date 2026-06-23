@@ -3,8 +3,8 @@ import Container from "react-bootstrap/esm/Container";
 import { useNavigate } from "react-router";
 import { useNowPlayingMovies } from "../../hooks/useMovieQueries";
 import "../../styles/hero-section.css";
-import ErrorMessage from "../ErrorMessage";
-import SearchForm from "../SearchForm";
+import ErrorMessage from "../ui/ErrorMessage";
+import SearchForm from "../search/SearchForm";
 
 const HeroSection = () => {
     const { data, isLoading, isError, error } = useNowPlayingMovies();

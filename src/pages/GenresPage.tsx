@@ -1,9 +1,9 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router";
-import ErrorMessage from "../components/ErrorMessage";
-import LoadingSpinner from "../components/LoadingSpinner";
-import Pagination from "../components/Pagination";
-import SearchForm from "../components/SearchForm";
+import ErrorMessage from "../components/ui/ErrorMessage";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
+import Pagination from "../components/ui/Pagination";
+import SearchForm from "../components/search/SearchForm";
 import { isoToFormattedString } from "../utils/formatDate";
 import { useGenres, useMovieByGenre } from "../hooks/useMovieQueries";
 

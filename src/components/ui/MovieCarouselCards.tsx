@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import type { Movie } from "../types/MovieDBTypes";
+import type { Movie } from "../../types/MovieDBTypes";
 
 interface MovieCardProps {
     movie: Movie;
