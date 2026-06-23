@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Modal } from "react-bootstrap";
 import { SwiperSlide } from "swiper/react";
 import { useUpcomingTrailers } from "../../hooks/useMovieQueries";
-import { TrailerCardSkeleton } from "../skeletons/TrailerCardSkeleton";
 import "../../styles/latest-trailers.css";
+import { TrailerCardSkeleton } from "../skeletons/TrailerCardSkeleton";
 import SectionCarousel from "../ui/SectionCarousel";
 
 const LatestTrailers = () => {
     const { data, isLoading, isError } = useUpcomingTrailers();
-    const [activeTrailerId, setActiveTrailerId] = useState<number | null>(null);
+    const [activeTrailerKey, setActiveTrailerKey] = useState<string | null>(null);
 
     if (isError || (!data && !isLoading)) return null;
 
@@ -22,6 +22,8 @@ const LatestTrailers = () => {
         : [];
 
     const skeletonItems = Array.from({ length: 4 });
+
+    const handleClose = () => setActiveTrailerKey(null);
 
     return (
         <section className="trailers-section my-5">
@@ -43,32 +45,19 @@ const LatestTrailers = () => {
                           ))
                         : videoMovies.map((movie) => (
                               <SwiperSlide key={movie.id}>
-                                  <div className="trailer-card p-2" onClick={() => setActiveTrailerId(movie.id)}>
+                                  <div className="trailer-card p-2" onClick={() => setActiveTrailerKey(movie.trailerKey || null)}>
                                       <div className="trailer-thumbnail-wrapper mb-2">
-                                          {activeTrailerId === movie.id ? (
-                                              <iframe
-                                                  src={`https://www.youtube.com/embed/${movie.trailerKey}?autoplay=1`}
-                                                  title={movie.title}
-                                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                  allowFullScreen
-                                                  style={{ width: "100%", height: "100%", border: "none" }}
-                                              ></iframe>
-                                          ) : (
-                                              <>
-                                                  <img
-                                                      src={`https://img.youtube.com/vi/${movie.trailerKey}/maxresdefault.jpg`}
-                                                      alt={movie.title}
-                                                      className="trailer-thumbnail-img"
-                                                      onError={(e) => {
-                                                          (e.target as HTMLImageElement).src =
-                                                              `https://img.youtube.com/vi/${movie.trailerKey}/mqdefault.jpg`;
-                                                      }}
-                                                  />
-                                                  <div className="trailer-play-overlay">
-                                                      <div className="trailer-play-icon"></div>
-                                                  </div>
-                                              </>
-                                          )}
+                                          <img
+                                              src={`https://img.youtube.com/vi/${movie.trailerKey}/maxresdefault.jpg`}
+                                              alt={movie.title}
+                                              className="trailer-thumbnail-img"
+                                              onError={(e) => {
+                                                  (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${movie.trailerKey}/mqdefault.jpg`;
+                                              }}
+                                          />
+                                          <div className="trailer-play-overlay">
+                                              <div className="trailer-play-icon"></div>
+                                          </div>
                                       </div>
                                       <h6 className="trailer-card-title fw-bold text-truncate mb-0 mt-2 text-black">{movie.title}</h6>
                                   </div>
@@ -76,6 +65,28 @@ const LatestTrailers = () => {
                           ))}
                 </SectionCarousel>
             </Container>
+
+            {/*  =============== TRAILER MODAL =============== */}
+            <Modal
+                show={!!activeTrailerKey}
+                onHide={handleClose}
+                centered
+                size="xl"
+                contentClassName="cinematic-modal-content"
+                backdropClassName="cinematic-modal-backdrop"
+            >
+                {activeTrailerKey && (
+                    <div className="cinematic-iframe-wrapper">
+                        <iframe
+                            src={`https://www.youtube.com/embed/${activeTrailerKey}?autoplay=1`}
+                            title="Trailer"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="cinematic-iframe"
+                        ></iframe>
+                    </div>
+                )}
+            </Modal>
         </section>
     );
 };
