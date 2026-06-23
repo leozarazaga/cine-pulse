@@ -59,7 +59,7 @@ const MovieCarousel = ({
                 </div>
             </div>
 
-            <Swiperjs breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 7.5 } }}>
+            <Swiperjs breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 7.3 } }}>
                 {isLoading
                     ? skeletonItems.map((_, index) => (
                           <SwiperSlide key={`skeleton-${index}`}>

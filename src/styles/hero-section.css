@@ -1,15 +1,20 @@
+/* ====================================
+       HERO SECTION (TMDB OFFICIAL LOOK)
+======================================= */
+
 .hero-container {
   position: relative;
   width: 100%;
   height: calc(100vh / 2.5);
-
+  min-height: 320px;
+  background-color: #032541;
 }
 
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center 20%;
 }
 
 .hero-overlay {
@@ -18,8 +23,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #019ad479;
-
+  background-color: rgba(3, 37, 65, 0.75);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -28,9 +32,23 @@
 
 .hero-content {
   color: white;
+  width: 100%;
 }
 
-.hero-content h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.hero-search-wrapper {
+  width: 100%;
+  max-width: 100%;
 }

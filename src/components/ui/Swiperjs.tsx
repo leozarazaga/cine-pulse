@@ -25,21 +25,16 @@ const Swiperjs: React.FC<SwiperjsProps> = ({ children, breakpoints, onSwiper }) 
                 }}
                 modules={[Navigation, FreeMode, Mousewheel, Scrollbar]}
                 freeMode={true}
-                mousewheel={{ 
+                mousewheel={{
                     forceToAxis: true,
                     releaseOnEdges: true,
-                    sensitivity: 1 
+                    sensitivity: 1,
                 }}
-                spaceBetween={24}
+                spaceBetween={6}
                 slidesPerGroup={1}
                 grabCursor={true}
                 loop={false}
-                breakpoints={
-                    breakpoints || {
-                        320: { slidesPerView: 2 },
-                        1024: { slidesPerView: 4 },
-                    }
-                }
+                breakpoints={breakpoints}
             >
                 {children}
             </Swiper>

@@ -3,9 +3,8 @@ import { Link, useSearchParams } from "react-router";
 import ErrorMessage from "../components/ui/ErrorMessage";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import Pagination from "../components/ui/Pagination";
-import SearchForm from "../components/search/SearchForm";
-import { isoToFormattedString } from "../utils/formatDate";
 import { useSearchForm } from "../hooks/useMovieQueries";
+import { isoToFormattedString } from "../utils/formatDate";
 
 const SearchResultPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -17,10 +16,6 @@ const SearchResultPage = () => {
     if (!searchMovieData || searchIsLoading) return <LoadingSpinner />;
     if (isSearchError) return <ErrorMessage message={searchError.message} />;
 
-    const handleSearch = (query: string) => {
-        setSearchParams({ query, page: "1" });
-    };
-
     const handlePageChange = (newPage: number) => {
         setSearchParams({ query, page: String(newPage) });
     };
@@ -28,8 +23,6 @@ const SearchResultPage = () => {
     return (
         <div>
             <Container className="my-4">
-                <SearchForm onSearch={handleSearch} searchCategory="movie" />
-
                 {query !== "" &&
                     (searchMovieData.results.length === 0 ? (
                         <p className="fs-5">No results found for "{query}"</p>

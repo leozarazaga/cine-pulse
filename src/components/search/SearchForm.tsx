@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, FormControl, InputGroup } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import "../../styles/search-form-styles.css";
 
 interface SearchFormProps {
@@ -7,33 +7,29 @@ interface SearchFormProps {
     searchCategory: string;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ onSearch, searchCategory }) => {
+const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
     const [input, setInput] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
         if (!input.trim()) return;
-
         onSearch(input.trim());
     };
 
     return (
-        <Form onSubmit={handleSubmit} className="search-form">
-            <Form.Label htmlFor="search">Search</Form.Label>
-            <InputGroup>
-                <FormControl
-                    className="form-input"
-                    id="search"
+        <Form onSubmit={handleSubmit} className="tmdb-search-form">
+            <label className="tmdb-search-label">
+                <input
                     type="text"
                     value={input}
-                    placeholder={`Search for a ${searchCategory}...`}
+                    autoComplete="off"
+                    spellCheck="false"
+                    placeholder="Search for a movie..."
                     onChange={(e) => setInput(e.target.value)}
+                    className="tmdb-search-input"
                 />
-                <button type="submit" className="search-btn">
-                    Search
-                </button>
-            </InputGroup>
+            </label>
+            <input type="submit" value="Search" className="tmdb-search-submit-btn" />
         </Form>
     );
 };

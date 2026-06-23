@@ -1,14 +1,12 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
-import { Link, useNavigate, useParams, useSearchParams } from "react-router";
+import { Link, useParams, useSearchParams } from "react-router";
 import ErrorMessage from "../components/ui/ErrorMessage";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import Pagination from "../components/ui/Pagination";
-import SearchForm from "../components/search/SearchForm";
-import { isoToFormattedString } from "../utils/formatDate";
 import { useGenres, useMovieByGenre } from "../hooks/useMovieQueries";
+import { isoToFormattedString } from "../utils/formatDate";
 
 const GenresPage = () => {
-    const navigate = useNavigate();
     const { id } = useParams();
     const genreId = Number(id);
 
@@ -36,8 +34,6 @@ const GenresPage = () => {
 
             <Container className="my-4">
                 <h1 className="mb-4">{genrebyName}</h1>
-
-                <SearchForm onSearch={(query) => navigate(`/search?query=${query}&page=1`)} searchCategory="movie" />
 
                 <Row xs={2} sm={3} md={4} lg={5} className="g-4">
                     {data.results.map((movie) => (

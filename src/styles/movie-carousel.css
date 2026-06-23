@@ -89,7 +89,7 @@
 .carousel-header-wrapper::before {
   content: "";
   display: block;
-  width: 4px;
+  width: 5px;
   height: 22px;
   background-color: #b8860b;
   margin-right: 12px;
