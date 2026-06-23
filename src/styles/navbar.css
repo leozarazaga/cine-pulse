@@ -1,6 +1,5 @@
 .navbar-container {
     background-color: #032541;
-    /* Brand Blue */
     padding-top: 14px;
     padding-bottom: 14px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -40,11 +39,8 @@
 .premium-dropdown .dropdown-item {
     font-family: 'SourceSansPro-Regular', sans-serif;
     font-size: 0.95rem;
-    color: #333333 !important;
-    /* Neutral dark text */
+    color: #333;
     padding: 8px 16px;
-    /* Tightened horizontal padding */
-
 }
 
 
@@ -70,5 +66,18 @@
 
 .grid-dropdown-item {
     border-radius: 2px;
-    padding: 6px 12px !important;
+    padding: 6px 12px;
+}
+
+.premium-dropdown .dropdown-item.active,
+.grid-dropdown-item.active {
+    background-color: transparent !important;
+    color: #032541 !important;
+    font-weight: 600;
+}
+
+.premium-dropdown .dropdown-item.active:hover,
+.grid-dropdown-item.active:hover {
+    background-color: #eaeaea !important;
+    color: #000000 !important;
 }

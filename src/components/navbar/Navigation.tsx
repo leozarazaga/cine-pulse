@@ -14,10 +14,16 @@ const Navigation = () => {
     const [showGenres, setShowGenres] = useState(false);
     const { data, isLoading, isError } = useGenres();
 
+    const closeAllDropdowns = () => {
+        setShowMovies(false);
+        setShowPeople(false);
+        setShowGenres(false);
+    };
+
     return (
         <Navbar expand="lg" className="navbar-container" variant="dark">
             <Container>
-                <Navbar.Brand as={Link} to={"/"} className="navbar-brand-wrapper">
+                <Navbar.Brand as={Link} to={"/"} className="navbar-brand-wrapper" onClick={closeAllDropdowns}>
                     <img src={navbarLogo} alt="The Movie Database Logo" className="navbar-logo" />
                 </Navbar.Brand>
 
@@ -33,15 +39,17 @@ const Navigation = () => {
                             renderMenuOnMount
                             className="premium-dropdown"
                         >
-                            <NavDropdown.Item as={NavLink} to="/trending">
-                                Trending
-                            </NavDropdown.Item>
-                            <NavDropdown.Item as={NavLink} to="/now-playing">
-                                Now Playing
-                            </NavDropdown.Item>
-                            <NavDropdown.Item as={NavLink} to="/top-rated">
-                                Top Rated
-                            </NavDropdown.Item>
+                            <div onClick={closeAllDropdowns}>
+                                <NavDropdown.Item as={NavLink} to="/trending">
+                                    Trending
+                                </NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} to="/now-playing">
+                                    Now Playing
+                                </NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} to="/top-rated">
+                                    Top Rated
+                                </NavDropdown.Item>
+                            </div>
                         </NavDropdown>
 
                         <NavDropdown
@@ -53,9 +61,11 @@ const Navigation = () => {
                             renderMenuOnMount
                             className="premium-dropdown"
                         >
-                            <NavDropdown.Item as={NavLink} to="/popular-people">
-                                Popular Actors
-                            </NavDropdown.Item>
+                            <div onClick={closeAllDropdowns}>
+                                <NavDropdown.Item as={NavLink} to="/popular-people">
+                                    Popular Actors
+                                </NavDropdown.Item>
+                            </div>
                         </NavDropdown>
 
                         <NavDropdown
@@ -67,7 +77,7 @@ const Navigation = () => {
                             renderMenuOnMount
                             className="premium-dropdown genre-megamenu"
                         >
-                            <div className="premium-menu-grid">
+                            <div className="premium-menu-grid" onClick={closeAllDropdowns}>
                                 {!isLoading &&
                                     !isError &&
                                     data?.genres.map((genre) => (
