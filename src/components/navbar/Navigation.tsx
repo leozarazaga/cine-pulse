@@ -7,7 +7,6 @@ import { Link, NavLink } from "react-router";
 import navbarLogo from "../../assets/images/TMDB-logo.svg";
 import { useGenres } from "../../hooks/useMovieQueries";
 import "../../styles/navbar.css";
-import LoadingSpinner from "../LoadingSpinner";
 
 const Navigation = () => {
     const [showMovies, setShowMovies] = useState(false);
@@ -15,7 +14,7 @@ const Navigation = () => {
     const [showGenres, setShowGenres] = useState(false);
     const { data, isLoading, isError, error } = useGenres();
 
-    if (isLoading) return <LoadingSpinner />;
+    if (isLoading) return null;
     if (isError) return <p>Error: {error.message} ⛔️</p>;
     if (!data) return;
 

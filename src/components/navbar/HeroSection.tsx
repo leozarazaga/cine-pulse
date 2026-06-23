@@ -4,7 +4,6 @@ import { useNavigate } from "react-router";
 import { useNowPlayingMovies } from "../../hooks/useMovieQueries";
 import "../../styles/hero-section.css";
 import ErrorMessage from "../ErrorMessage";
-import LoadingCarouselSpinner from "../LoadingCarouselSpinner";
 import SearchForm from "../SearchForm";
 
 const HeroSection = () => {
@@ -19,7 +18,7 @@ const HeroSection = () => {
         setBackdropPath(data.results[randomIndex].backdrop_path);
     }, [data]);
 
-    if (!data || isLoading) return <LoadingCarouselSpinner />;
+    if (!data || isLoading) return null;
     if (isError) return <ErrorMessage message={error.message} />;
 
     return (
