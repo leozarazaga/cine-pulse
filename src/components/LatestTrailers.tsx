@@ -4,7 +4,7 @@ import { SwiperSlide } from "swiper/react";
 import { useUpcomingTrailers } from "../hooks/useMovieQueries";
 import "../styles/latest-trailers.css";
 import SectionCarousel from "./SectionCarousel";
-import { TrailerCardSkeleton } from "./TrailerCardSkeleton";
+import { TrailerCardSkeleton } from "./skeletons/TrailerCardSkeleton";
 
 const LatestTrailers = () => {
     const { data, isLoading, isError } = useUpcomingTrailers();

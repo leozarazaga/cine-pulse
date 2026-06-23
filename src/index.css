@@ -124,24 +124,30 @@ body {
 /* ====================================
      MOVIE CAROUSEL CARD ADDITIONS
 ======================================= */
-.movie-carousel-container{
-   max-width: 900px;
+.movie-carousel-container {
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .movie-carousel-rating {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   margin-top: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #1a1a1a;
 }
 
-.movie-carousel-star {
+.movie-carousel-star-svg {
   color: #f5c518;
-  font-size: 1.1rem;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.movie-carousel-score {
+  color: #444;
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .movie-carousel-title {

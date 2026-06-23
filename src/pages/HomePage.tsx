@@ -14,11 +14,9 @@ const HomePage = () => {
             <title>Home</title>
 
             <HeroSection />
-
             <TrendingMoviesCarousel />
-
             <LatestTrailers />
-
+            
             <Container>
                 <MovieCarousel title="Now Playing" exploreLink="/now-playing" query={nowPlayingQuery} />
             </Container>

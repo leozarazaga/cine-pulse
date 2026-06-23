@@ -1,11 +1,10 @@
-// MovieCarousel.tsx
 import type { UseQueryResult } from "@tanstack/react-query";
 import { Link } from "react-router";
 import { SwiperSlide } from "swiper/react";
 import type { Movie, PaginatedResponse } from "../../types/MovieDBTypes";
 import ErrorMessage from "../ErrorMessage";
 import { MovieCarouselCards } from "../MovieCarouselCards";
-import { MovieCardSkeleton } from "../MovieCardSkeleton"; // Import skeleton card
+import { MovieCardSkeleton } from "../skeletons/MovieCardSkeleton"; // Import skeleton card
 import Swiperjs from "../Swiperjs";
 
 interface MovieCarouselProps {
