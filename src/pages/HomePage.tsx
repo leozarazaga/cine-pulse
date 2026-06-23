@@ -5,6 +5,7 @@ import LatestTrailers from "../components/LatestTrailers";
 import HeroSection from "../components/navbar/HeroSection";
 import RecentlyViewedMovies from "../components/RecentlyViewedMovies";
 import { useNowPlayingMovies } from "../hooks/useMovieQueries";
+import PopularActorsCarousel from "../components/PopularActorsCarousel";
 
 const HomePage = () => {
     const nowPlayingQuery = useNowPlayingMovies();
@@ -16,10 +17,10 @@ const HomePage = () => {
             <HeroSection />
             <TrendingMoviesCarousel />
             <LatestTrailers />
-            
-            <Container>
-                <MovieCarousel title="Now Playing" exploreLink="/now-playing" query={nowPlayingQuery} />
-            </Container>
+
+            <MovieCarousel title="Now Playing" exploreLink="/now-playing" query={nowPlayingQuery} />
+
+            <PopularActorsCarousel />
 
             <RecentlyViewedMovies />
         </div>

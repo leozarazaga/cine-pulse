@@ -1,4 +1,4 @@
-import { useRef } from "react";
+/* import { useRef } from "react";
 import { Link } from "react-router";
 import { Swiper as SwiperCore } from "swiper";
 import { SwiperSlide } from "swiper/react";
@@ -50,3 +50,4 @@ const KnownForCarousel = ({ movies }: KnownForCarouselProps) => {
 };
 
 export default KnownForCarousel;
+ */

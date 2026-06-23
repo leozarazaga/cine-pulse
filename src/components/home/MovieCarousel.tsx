@@ -4,7 +4,7 @@ import { SwiperSlide } from "swiper/react";
 import type { Movie, PaginatedResponse } from "../../types/MovieDBTypes";
 import ErrorMessage from "../ErrorMessage";
 import { MovieCarouselCards } from "../MovieCarouselCards";
-import { MovieCardSkeleton } from "../skeletons/MovieCardSkeleton"; // Import skeleton card
+import { MovieCardSkeleton } from "../skeletons/MovieCardSkeleton"; 
 import Swiperjs from "../Swiperjs";
 
 interface MovieCarouselProps {
@@ -21,7 +21,7 @@ const MovieCarousel = ({
     title,
     exploreLink,
     query,
-    sectionClassName = "carousel-section",
+    sectionClassName = "container",
     headerClassName = "carousel-header-container",
     titleGroupClassName = "title-button-group",
     children,
@@ -33,7 +33,7 @@ const MovieCarousel = ({
     const skeletonItems = Array.from({ length: 7 });
 
     return (
-        <section className={sectionClassName}>
+        <section className={sectionClassName} >
             <div className="carousel-header-wrapper">
                 <div className={headerClassName} style={{ margin: 0, width: "100%" }}>
                     <div className={titleGroupClassName}>

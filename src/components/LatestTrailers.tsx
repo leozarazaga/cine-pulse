@@ -24,7 +24,7 @@ const LatestTrailers = () => {
     const skeletonItems = Array.from({ length: 4 });
 
     return (
-        <section className="trailers-section py-5">
+        <section className="trailers-section my-5">
             <Container>
                 <SectionCarousel
                     title="Latest Trailers"

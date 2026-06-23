@@ -1,9 +1,5 @@
 /* =========== GENERIC CAROUSEL STYLES ===========*/
 
-.carousel-section {
-  margin-bottom: 2rem;
-}
-
 .carousel-header-container {
   display: flex;
   justify-content: space-between;
@@ -94,7 +90,7 @@
   content: "";
   display: block;
   width: 4px;
-  height: 24px;
+  height: 22px;
   background-color: #b8860b;
   margin-right: 12px;
   border-radius: 2px;

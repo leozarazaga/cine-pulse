@@ -4,7 +4,7 @@ import { Form, FormControl, InputGroup } from "react-bootstrap";
 
 interface SearchFormProps {
     onSearch: (searchInput: string) => void;
-    searchCategory: string; // Movies & Actors (if there is time)
+    searchCategory: string;
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({ onSearch, searchCategory }) => {

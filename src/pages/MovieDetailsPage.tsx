@@ -169,7 +169,7 @@ const MovieDetailsPage = () => {
 
             {/* ================= VIDEOS SECTION ================= */}
             {trailers.length > 0 && (
-                <section className="trailers-section py-5">
+                <section className="trailers-section pt-5">
                     <Container>
                         <div className="movie-trailer-wrap">
                             <div style={{ cursor: "default" }}>
