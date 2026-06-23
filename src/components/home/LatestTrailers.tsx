@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { SwiperSlide } from "swiper/react";
 import { useUpcomingTrailers } from "../../hooks/useMovieQueries";
 import { TrailerCardSkeleton } from "../skeletons/TrailerCardSkeleton";
-import "../styles/latest-trailers.css";
+import "../../styles/latest-trailers.css";
 import SectionCarousel from "../ui/SectionCarousel";
 
 const LatestTrailers = () => {

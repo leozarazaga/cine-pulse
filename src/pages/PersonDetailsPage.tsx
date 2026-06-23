@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router";
 import { SwiperSlide } from "swiper/react";
 import ErrorMessage from "../components/ui/ErrorMessage";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
-import SectionCarousel from "../components/SectionCarousel";
+import SectionCarousel from "../components/ui/SectionCarousel";
 import TextExpander from "../components/ui/TextExpander";
 import PersonSidebar from "../components/actor/PersonSidebar";
 import TopCriticallyAcclaimed from "../components/actor/TopCriticallyAcclaimed";
