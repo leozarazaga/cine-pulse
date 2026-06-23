@@ -1,10 +1,11 @@
+// MovieCarousel.tsx
 import type { UseQueryResult } from "@tanstack/react-query";
 import { Link } from "react-router";
 import { SwiperSlide } from "swiper/react";
 import type { Movie, PaginatedResponse } from "../../types/MovieDBTypes";
 import ErrorMessage from "../ErrorMessage";
-import LoadingCarouselSpinner from "../LoadingCarouselSpinner";
 import { MovieCarouselCards } from "../MovieCarouselCards";
+import { MovieCardSkeleton } from "../MovieCardSkeleton"; // Import skeleton card
 import Swiperjs from "../Swiperjs";
 
 interface MovieCarouselProps {
@@ -28,8 +29,9 @@ const MovieCarousel = ({
 }: MovieCarouselProps) => {
     const { data, isLoading, isError, error } = query;
 
-    if (!data || isLoading) return <LoadingCarouselSpinner />;
     if (isError) return <ErrorMessage message={error.message} />;
+
+    const skeletonItems = Array.from({ length: 7 });
 
     return (
         <section className={sectionClassName}>
@@ -58,14 +60,18 @@ const MovieCarousel = ({
                 </div>
             </div>
 
-            <Swiperjs
-                breakpoints={{ 320: { slidesPerView: 3.5 },  720: { slidesPerView: 4.2 }, 1024: { slidesPerView: 7.5 } }}
-            >
-                {data.results.map((movie) => (
-                    <SwiperSlide key={movie.id}>
-                        <MovieCarouselCards movie={movie} />
-                    </SwiperSlide>
-                ))}
+            <Swiperjs breakpoints={{ 320: { slidesPerView: 3.5 }, 1024: { slidesPerView: 7.5 } }}>
+                {isLoading
+                    ? skeletonItems.map((_, index) => (
+                          <SwiperSlide key={`skeleton-${index}`}>
+                              <MovieCardSkeleton />
+                          </SwiperSlide>
+                      ))
+                    : data?.results.map((movie) => (
+                          <SwiperSlide key={movie.id}>
+                              <MovieCarouselCards movie={movie} />
+                          </SwiperSlide>
+                      ))}
             </Swiperjs>
         </section>
     );
