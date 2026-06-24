@@ -161,6 +161,13 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 767px) {
+  .movie-carousel-container .movie-carousel-rating,
+  .movie-carousel-container .movie-carousel-title {
+    display: none;
+  }
+}
+
 /* ========================== 
        LOADING SPINNER   
 ============================= */
@@ -265,7 +272,6 @@ body {
   margin: 2rem 0 1rem;
   flex-wrap: wrap;
 }
-
 /* ====================================
          SECTION CAROUSEL
 ======================================= */
@@ -326,7 +332,14 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  /* Added background-color transition for a smooth interactive flash effect */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Added premium hover micro-interaction */
+.custom-nav-btn:hover {
+  transform: scale(1.08);
+  background-color: #9c720a; /* Slightly deeper gold overlay */
 }
 
 .carousel-card {
@@ -346,6 +359,28 @@ body {
   font-size: 0.95rem;
   margin-top: 0.5rem;
   color: var(--person-text)
+}
+
+/* ====================================
+     PREMIUM CAROUSEL MOBILE RESPONSIVENESS
+======================================= */
+@media (max-width: 767px) {
+  .section-carousel-header {
+    margin-bottom: 1rem;
+  }
+
+  /* Scale the gold button circle frames down gracefully */
+  .custom-nav-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Target the vector paths to optimize clarity at a smaller scale */
+  .custom-nav-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 3; /* Thickens the arrow line so it is crystal clear on phones */
+  }
 }
 
 /* ====================================

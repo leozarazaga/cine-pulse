@@ -1,5 +1,5 @@
 /* ====================================
-       HERO SECTION (TMDB OFFICIAL LOOK)
+   BASE HERO LAYOUT (DESKTOP & DEFAULT)
 ======================================= */
 
 .hero-container {
@@ -46,9 +46,36 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 30px;
+  line-height: 1.3;
 }
 
 .hero-search-wrapper {
   width: 100%;
   max-width: 100%;
+}
+
+
+@media (max-width: 767px) {
+  .hero-container {
+    height: auto;
+    min-height: 280px;
+    padding: 20px 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 4px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
 }

@@ -105,3 +105,18 @@
     height: 100%;
     border: none;
 }
+
+/* ====================================
+            MEDIA QUERIES
+======================================= */
+@media (max-width: 767px) {
+  .trailer-play-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .trailer-play-icon::after {
+    border-width: 7px 0 7px 12px;
+    margin-left: 3px; 
+  }
+}

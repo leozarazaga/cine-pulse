@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Col, Container, Modal, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router";
 import { SwiperSlide } from "swiper/react";
 import RecentlyViewedMovies from "../components/home/RecentlyViewedMovies";
@@ -16,6 +16,7 @@ const MovieDetailsPage = () => {
     const movieId = Number(id);
 
     const { addToRecentlyViewed } = useRecentViewedMovies();
+    const [activeTrailerKey, setActiveTrailerKey] = useState<string | null>(null);
 
     const { data: movieData, isLoading: isMovieLoading, isError: isMovieError, error: movieError } = useMovieDetails(movieId);
     const { data: creditsData, isLoading: isCreditsLoading, isError: isCreditsError, error: creditsError } = useMovieCredits(movieId);
@@ -23,7 +24,6 @@ const MovieDetailsPage = () => {
     const { data: imagesData, isLoading: isImagesLoading, isError: isImagesError, error: imagesError } = useMovieImages(movieId);
     const { data: videosData, isLoading: isVideosLoading, isError: isVideosError, error: videosError } = useMovieVideos(movieId);
 
-    // Sync History Tracking
     useEffect(() => {
         if (movieData && movieData.id) {
             addToRecentlyViewed({
@@ -47,11 +47,12 @@ const MovieDetailsPage = () => {
     if (isVideosError) return <ErrorMessage message={videosError.message} />;
 
     const releaseYear = movieData.release_date.slice(0, 4);
-
     const sneakPeekBackdrops = imagesData.backdrops.slice(0, 4);
     const topCast = creditsData.cast.slice(0, 7);
     const principalCrew = creditsData.crew.filter((member) => ["Director", "Writer", "Screenplay", "Story"].includes(member.job));
     const trailers = videosData.results.filter((video) => video.site === "YouTube" && video.type === "Trailer").slice(0, 2);
+
+    const handleClose = () => setActiveTrailerKey(null);
 
     return (
         <>
@@ -169,7 +170,7 @@ const MovieDetailsPage = () => {
 
             {/* ================= VIDEOS SECTION ================= */}
             {trailers.length > 0 && (
-                <section className="trailers-section pt-5">
+                <section className="trailers-section pt-4">
                     <Container>
                         <div className="movie-trailer-wrap">
                             <div style={{ cursor: "default" }}>
@@ -179,14 +180,22 @@ const MovieDetailsPage = () => {
 
                         <Row className="mt-4">
                             {trailers.map((trailer) => (
-                                <Col md={6} key={trailer.id} className="mb-4">
-                                    <div className="ratio ratio-16x9">
-                                        <iframe
-                                            src={`https://www.youtube.com/embed/${trailer.key}`}
-                                            title={trailer.name}
-                                            allowFullScreen
-                                            style={{ borderRadius: "8px", border: "none" }}
-                                        ></iframe>
+                                <Col md={6} key={trailer.id} className="mb-2">
+                                    <div className="detail-trailer-card" onClick={() => setActiveTrailerKey(trailer.key)}>
+                                        <div className="detail-thumbnail-wrapper">
+                                            <img
+                                                src={`https://img.youtube.com/vi/${trailer.key}/maxresdefault.jpg`}
+                                                alt={trailer.name}
+                                                className="detail-thumbnail-img"
+                                                onError={(e) => {
+                                                    (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${trailer.key}/mqdefault.jpg`;
+                                                }}
+                                            />
+                                            <div className="detail-play-overlay">
+                                                <div className="detail-play-icon"></div>
+                                            </div>
+                                        </div>
+                                        <h6 className="detail-trailer-title fw-bold text-truncate mt-2 text-black">{trailer.name}</h6>
                                     </div>
                                 </Col>
                             ))}
@@ -211,6 +220,28 @@ const MovieDetailsPage = () => {
                     </SectionCarousel>
                 </Container>
             </section>
+
+            {/*  =============== MODAL POP-UP =============== */}
+            <Modal
+                show={!!activeTrailerKey}
+                onHide={handleClose}
+                centered
+                size="xl"
+                contentClassName="cinematic-modal-content"
+                backdropClassName="cinematic-modal-backdrop"
+            >
+                {activeTrailerKey && (
+                    <div className="cinematic-iframe-wrapper">
+                        <iframe
+                            src={`https://www.youtube.com/embed/${activeTrailerKey}?autoplay=1`}
+                            title="Trailer"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="cinematic-iframe"
+                        ></iframe>
+                    </div>
+                )}
+            </Modal>
 
             <RecentlyViewedMovies />
         </>
