@@ -1,15 +1,5 @@
-html[data-theme="dark"] {
-    --person-bg: #1e1e1e;
-    --person-text: #e5e2e3;
-    --person-muted: #8e8e93;
-    --person-border: rgba(255, 255, 255, 0.1);
-    --person-card-bg: rgba(255, 255, 255, 0.03);
-    --person-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-    --person-accent: #f2ca50;
-}
-
 /* ==================================
-    BASE LAYOUT & AMBIENT GLOW
+      BASE LAYOUT & AMBIENT GLOW
 ==================================== */
 .person-details-wrapper {
     position: relative;
@@ -216,4 +206,157 @@ html[data-theme="dark"] .profile-title {
     font-weight: 600;
     display: flex;
     align-items: center;
+}
+
+
+/* ====================================
+        ACTOR CREDITS
+======================================= */
+.filmography-container {
+    background-color: var(--person-card-bg);
+    border: 1px solid var(--person-border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    box-shadow: var(--person-card-shadow);
+}
+
+.filmography-category-header {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 1rem 1.25rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--person-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.credits-count {
+    font-size: 0.85rem;
+    color: var(--person-muted);
+    font-weight: 400;
+}
+
+.filmography-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.filmography-row {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--person-border);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.filmography-row:last-child {
+    border-bottom: none;
+}
+
+.filmography-row:hover {
+    background-color: rgba(184, 134, 11, 0.04);
+}
+
+.credit-poster-wrapper {
+    width: 48px;
+    height: 72px;
+    flex-shrink: 0;
+    margin-right: 1.25rem;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.credit-mini-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.credit-poster-placeholder {
+    font-size: 1.2rem;
+    opacity: 0.5;
+}
+
+.credit-main-info {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.credit-movie-title {
+    font-weight: 600;
+    color: var(--person-text);
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: color 0.2s ease;
+}
+
+.filmography-row:hover .credit-movie-title {
+  color: #b8860b;
+}
+
+.credit-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.88rem;
+}
+
+.star-icon {
+    color: #f5c518;
+    display: flex;
+    align-items: center;
+}
+
+.rating-number {
+    font-weight: 400;
+    color: var(--person-muted);
+}
+
+/* Character Line Styling */
+.credit-character-name {
+    font-size: 0.88rem;
+    color: var(--person-muted);
+    font-weight: 400;
+}
+
+/* Right Fixed Year Column */
+.credit-year-column {
+    font-family: monospace, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--person-muted);
+    padding-left: 1rem;
+    text-align: right;
+    min-width: 60px;
+}
+
+@media (max-width: 576px) {
+    .filmography-row {
+        padding: 0.75rem 1rem;
+    }
+
+    .credit-poster-wrapper {
+        margin-right: 0.85rem;
+        width: 40px;
+        height: 60px;
+    }
+
+    .credit-movie-title {
+        font-size: 0.95rem;
+    }
+
+    .credit-year-column {
+        font-size: 0.9rem;
+        min-width: 45px;
+    }
 }

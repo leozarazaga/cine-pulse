@@ -6,8 +6,9 @@ import SectionCarousel from "../components/ui/SectionCarousel";
 import TextExpander from "../components/ui/TextExpander";
 import PersonSidebar from "../components/actor/PersonSidebar";
 import TopCriticallyAcclaimed from "../components/actor/TopCriticallyAcclaimed";
-import { useMoviesInvolvedIn, usePersonDetails } from "../hooks/useMovieQueries";
+import { useMoviesInvolvedIn, usePersonDetails, usePersonMovieCredits } from "../hooks/useMovieQueries";
 import "../styles/person-details-styles.css";
+import ActorCredits from "../components/actor/ActorCredits";
 
 const PersonDetailsPage = () => {
     const { id } = useParams();
@@ -15,9 +16,11 @@ const PersonDetailsPage = () => {
 
     const { data: personData, isLoading: isPersonLoading, isError: isPersonError, error: personError } = usePersonDetails(personId);
     const { data: involvedInData, isLoading: isInvolvedLoading, isError: isInvolvedError, error: involvedError } = useMoviesInvolvedIn(personId);
+    const { data: creditsData, isLoading: isCreditsLoading } = usePersonMovieCredits(personId);
 
     if (!personData || isPersonLoading) return <LoadingSpinner />;
     if (!involvedInData || isInvolvedLoading) return <LoadingSpinner />;
+    if (!creditsData || isCreditsLoading) return <LoadingSpinner />;
 
     if (isPersonError) return <ErrorMessage message={personError.message} />;
     if (isInvolvedError) return <ErrorMessage message={involvedError.message} />;
@@ -71,6 +74,9 @@ const PersonDetailsPage = () => {
                                 </SwiperSlide>
                             ))}
                         </SectionCarousel>
+
+                        {/* =============== Actor Credits =============== */}
+                        <ActorCredits credits={creditsData.cast} />
                     </article>
                 </div>
             </main>

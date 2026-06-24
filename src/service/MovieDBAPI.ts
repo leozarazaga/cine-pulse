@@ -9,6 +9,7 @@ import type {
     PersonDetails,
     MovieImagesResponse,
     MovieVideosResponse,
+    PersonMovieCreditsResponse,
 } from "../types/MovieDBTypes";
 
 const BEARER_TOKEN = import.meta.env.VITE_TMDB_BEARER_TOKEN;
@@ -65,6 +66,10 @@ export const popularPeople = (page = 1) => {
 
 export const personDetails = (personId: number) => {
     return get<PersonDetails>(`/person/${personId}`);
+};
+
+export const personMovieCredits = (personId: number) => {
+    return get<PersonMovieCreditsResponse>(`person/${personId}/movie_credits`);
 };
 
 export const personMoviesInvolvedIn = (personId: number) => {

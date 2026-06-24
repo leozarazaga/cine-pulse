@@ -294,13 +294,6 @@ body {
   border-radius: 2px;
 }
 
-.section-header::after {
-  content: "";
-  flex-grow: 1;
-  height: 1px;
-  background-color: var(--person-border);
-}
-
 .section-carousel-header {
   display: flex;
   justify-content: space-between;

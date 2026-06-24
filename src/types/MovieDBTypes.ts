@@ -46,6 +46,16 @@ export type MovieCard = {
     release_date: string;
 };
 
+export interface PersonMovieCast {
+    id: number;
+    title: string;
+    poster_path: string | null;
+    release_date: string;
+    vote_average: number;
+    character: string;
+    credit_id: string;
+}
+
 /* ============= RESPONSES =============*/
 
 export interface Genres {
@@ -148,6 +158,11 @@ export interface Video {
     official: boolean;
     published_at: string;
     id: string;
+}
+
+export interface PersonMovieCreditsResponse {
+    id: number;
+    cast: PersonMovieCast[];
 }
 
 export interface MovieVideosResponse {

@@ -83,6 +83,13 @@ export const usePersonDetails = (personId: number) => {
     });
 };
 
+export const usePersonMovieCredits = (personId: number) => {
+    return useQuery({
+        queryKey: ["person-movie-credits", personId],
+        queryFn: () => service.personMovieCredits(personId),
+    });
+};
+
 export const useMoviesInvolvedIn = (personId: number) => {
     return useQuery({
         queryKey: ["movies-involved", personId],
@@ -108,6 +115,6 @@ export const useUpcomingTrailers = () => {
     return useQuery({
         queryKey: ["upcoming-trailers"],
         queryFn: service.upcomingTrailersList,
-        staleTime: 1000 * 60 * 10, 
+        staleTime: 1000 * 60 * 10,
     });
 };
