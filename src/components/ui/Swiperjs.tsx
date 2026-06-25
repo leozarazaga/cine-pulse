@@ -44,8 +44,6 @@ const Swiperjs: React.FC<SwiperjsProps> = ({ children, breakpoints, onSwiper }) 
                 touchStartPreventDefault={false}
             >
                 {children}
-
-                {children}
             </Swiper>
         </div>
     );
