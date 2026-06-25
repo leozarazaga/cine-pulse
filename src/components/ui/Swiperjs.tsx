@@ -27,10 +27,9 @@ const Swiperjs: React.FC<SwiperjsProps> = ({ children, breakpoints, onSwiper }) 
                 freeMode={{
                     enabled: true,
                     momentum: true,
-                    momentumRatio: 0.6,
-                    momentumVelocityRatio: 0.5,
+                    momentumRatio: 1,
+                    momentumVelocityRatio: 0.7,
                     momentumBounce: true,
-                    sticky: true,
                 }}
                 mousewheel={{
                     forceToAxis: true,

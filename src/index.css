@@ -180,7 +180,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  background-color: white; 
+  z-index: 99;             
 }
 
 .loading-spinner {
