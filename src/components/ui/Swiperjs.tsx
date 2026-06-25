@@ -43,6 +43,10 @@ const Swiperjs: React.FC<SwiperjsProps> = ({ children, breakpoints, onSwiper }) 
                 touchMoveStopPropagation={true}
                 resistance={true}
                 resistanceRatio={0.85}
+                preventInteractionOnTransition={false}
+                watchSlidesProgress={true}
+                shortSwipes={true}
+                touchStartPreventDefault={false}
             >
                 {children}
 
