@@ -4,7 +4,7 @@ import "swiper/css/free-mode";
 import "swiper/css/mousewheel";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
-import { FreeMode, Mousewheel, Navigation, Scrollbar } from "swiper/modules";
+import {  Mousewheel, Navigation, Scrollbar } from "swiper/modules";
 import { Swiper } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
 
@@ -23,14 +23,15 @@ const Swiperjs: React.FC<SwiperjsProps> = ({ children, breakpoints, onSwiper }) 
                     draggable: true,
                     hide: false,
                 }}
-                modules={[Navigation, FreeMode, Mousewheel, Scrollbar]}
-                freeMode={{
+                modules={[Navigation, /* FreeMode,*/ Mousewheel, Scrollbar]}
+                cssMode={true}
+               /*  freeMode={{
                     enabled: true,
                     momentum: true,
                     momentumRatio: 1,
                     momentumVelocityRatio: 0.7,
                     momentumBounce: true,
-                }}
+                }} */
                 mousewheel={{
                     forceToAxis: true,
                     releaseOnEdges: true,
