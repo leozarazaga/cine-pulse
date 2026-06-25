@@ -11,6 +11,8 @@ import PersonDetailsPage from "./pages/PersonDetailsPage";
 import PopularPeoplePage from "./pages/PopularPeoplePage";
 import SearchResultPage from "./pages/SearchResultPage";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
+import Footer from "./components/ui/Footer";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
     return (
@@ -29,8 +31,10 @@ function App() {
                 <Route path="/popular-people" element={<PopularPeoplePage />} />
                 <Route path="/search" element={<SearchResultPage />} />
 
-                <Route path="*" element={<p>Page not found</p>} />
+                <Route path="*" element={<NotFoundPage/>} />
             </Routes>
+
+            <Footer/>
         </div>
     );
 }
