@@ -65,6 +65,12 @@ body {
 /* ========================== 
           SWIPER.JS   
 ============================= */
+
+/* PROXIMITY SCROLL */
+.netflix-carousel .swiper-wrapper {
+  scroll-snap-type: x proximity !important;
+}
+
 .swiper {
   padding-bottom: 1.5rem !important;
   overscroll-behavior-x: contain;
@@ -162,6 +168,7 @@ body {
 }
 
 @media (max-width: 767px) {
+
   .movie-carousel-container .movie-carousel-rating,
   .movie-carousel-container .movie-carousel-title {
     display: none;
@@ -180,8 +187,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white; 
-  z-index: 99;             
+  background-color: white;
+  z-index: 99;
 }
 
 .loading-spinner {
@@ -273,6 +280,7 @@ body {
   margin: 2rem 0 1rem;
   flex-wrap: wrap;
 }
+
 /* ====================================
          SECTION CAROUSEL
 ======================================= */
@@ -333,7 +341,8 @@ body {
 /* Added premium hover micro-interaction */
 .custom-nav-btn:hover {
   transform: scale(1.08);
-  background-color: #9c720a; /* Slightly deeper gold overlay */
+  background-color: #9c720a;
+  /* Slightly deeper gold overlay */
 }
 
 .carousel-card {
@@ -373,7 +382,8 @@ body {
   .custom-nav-btn svg {
     width: 14px;
     height: 14px;
-    stroke-width: 3; /* Thickens the arrow line so it is crystal clear on phones */
+    stroke-width: 3;
+    /* Thickens the arrow line so it is crystal clear on phones */
   }
 }
 
