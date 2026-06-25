@@ -1,18 +1,17 @@
 import { Route, Routes } from "react-router";
 import Navigation from "./components/navbar/Navigation";
-import HomePage from "./pages/HomePage";
-
+import Footer from "./components/ui/Footer";
 import GenresPage from "./pages/GenresPage";
+import HomePage from "./pages/HomePage";
 import MovieCastPage from "./pages/MovieCastPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import NowPlayingMoviesPage from "./pages/NowPlayingMoviesPage";
 import NowTrendingMoviesPage from "./pages/NowTrendingMoviesPage";
 import PersonDetailsPage from "./pages/PersonDetailsPage";
 import PopularPeoplePage from "./pages/PopularPeoplePage";
 import SearchResultPage from "./pages/SearchResultPage";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
-import Footer from "./components/ui/Footer";
-import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
     return (
