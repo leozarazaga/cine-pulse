@@ -12,10 +12,12 @@ import PersonDetailsPage from "./pages/PersonDetailsPage";
 import PopularPeoplePage from "./pages/PopularPeoplePage";
 import SearchResultPage from "./pages/SearchResultPage";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
+import ScrollToTop from "./components/ui/ScrollToTop";
 
 function App() {
     return (
         <div>
+            <ScrollToTop />
             <Navigation />
 
             <Routes>
@@ -30,10 +32,10 @@ function App() {
                 <Route path="/popular-people" element={<PopularPeoplePage />} />
                 <Route path="/search" element={<SearchResultPage />} />
 
-                <Route path="*" element={<NotFoundPage/>} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
 
-            <Footer/>
+            <Footer />
         </div>
     );
 }
